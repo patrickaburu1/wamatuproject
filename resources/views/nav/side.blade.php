@@ -51,17 +51,10 @@
                             <li>
                                 <a href="#"><i class="icon-pencil3"></i> <span>Contribution</span></a>
                                 <ul>
-                                    <li><a href="{{url('contribute')}}">Contribute</a></li>
-
-                                    <li>
-                                        <a href="#">Selects</a>
-                                        <ul>
-                                            <li><a href="form_select2.html">Select2 selects</a></li>
-                                            <li><a href="form_multiselect.html">Bootstrap multiselect</a></li>
-                                            <li><a href="form_select_box_it.html">SelectBoxIt selects</a></li>
-                                            <li><a href="form_bootstrap_select.html">Bootstrap selects</a></li>
-                                        </ul>
-                                    </li>
+                                    <li ><a class="icon-add" href="{{url('contribute')}}">Send Contribution</a></li>
+                                    <li><a class="icon-add-to-list" href="{{url('contribute')}}">Pending Approval</a></li>
+                                    <li><a class="icon-stack-cancel" href="{{url('contribute')}}">Rejected Contributions</a></li>
+                                    <li><a class="icon-apple2" href="{{url('contribute')}}">Approved Contributions</a></li>
 
                                 </ul>
                             </li>
@@ -69,28 +62,13 @@
                             <!-- /forms -->
 
                             <!-- Appearance -->
-                            <li class="navigation-header"><span>Appearance</span> <i class="icon-menu" title="Appearance"></i></li>
+                            <li class="navigation-header"><span>Statements</span> <i class="icon-menu" title="Appearance"></i></li>
                             <li>
-                                <a href="#"><i class="icon-grid"></i> <span>Components</span></a>
+                                <a href="#"><i class="icon-grid"></i> <span>Statements</span></a>
                                 <ul>
-                                    <li><a href="components_modals.html">Modals</a></li>
-                                    <li><a href="components_dropdowns.html">Dropdown menus</a></li>
-                                    <li><a href="components_tabs.html">Tabs component</a></li>
-                                    <li><a href="components_pills.html">Pills component</a></li>
-                                    <li><a href="components_navs.html">Accordion and navs</a></li>
-                                    <li><a href="components_buttons.html">Buttons</a></li>
-                                    <li><a href="components_notifications_pnotify.html">PNotify notifications</a></li>
-                                    <li><a href="components_notifications_others.html">Other notifications</a></li>
-                                    <li><a href="components_popups.html">Tooltips and popovers</a></li>
-                                    <li><a href="components_alerts.html">Alerts</a></li>
-                                    <li><a href="components_pagination.html">Pagination</a></li>
-                                    <li><a href="components_labels.html">Labels and badges</a></li>
-                                    <li><a href="components_loaders.html">Loaders and bars</a></li>
-                                    <li><a href="components_thumbnails.html">Thumbnails</a></li>
-                                    <li><a href="components_page_header.html">Page header</a></li>
-                                    <li><a href="components_breadcrumbs.html">Breadcrumbs</a></li>
-                                    <li><a href="components_media.html">Media objects</a></li>
-                                    <li><a href="components_affix.html">Affix and Scrollspy</a></li>
+                                    <li><a class="icon-statistics" href="components_modals.html">Mini-Statements</a></li>
+                                    <li><a class="icon-graph" href="components_modals.html">Full Statements</a></li>
+
                                 </ul>
                             </li>
 
