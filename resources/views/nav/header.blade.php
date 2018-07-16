@@ -206,7 +206,7 @@
             <li class="dropdown dropdown-user">
                 <a class="dropdown-toggle" data-toggle="dropdown">
                     <img src="assets/images/placeholder.jpg" alt="">
-                    <span>Victoria</span>
+                    <span>Patrick</span>
                     <i class="caret"></i>
                 </a>
 

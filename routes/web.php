@@ -18,8 +18,18 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return view('welcome');
 });
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
 Route::get('/contribute', 'ContributionController@index');
+
+
+Route::post('/contribute', 'ContributionController@addContribution');
+
+
+Route::get('/contributions', 'ContributionController@contributions');
+
+

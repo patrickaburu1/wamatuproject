@@ -5,7 +5,7 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-8">
-                        <form class="" action="{{url('/')}}">
+                        <form class="" method="post" action="{{url('/contribute')}}">
                             {{csrf_field()}}
                             <legend class="text-semibold"><i class="icon-reading position-left"></i> Contribute</legend>
 
@@ -15,7 +15,7 @@
                                 <div class="col-lg-9">
                                     <div class="row">
                                         <div class="form-group">
-                                            <input type="number" name="Total Amount" placeholder="50000" maxlength="6"
+                                            <input type="number" name="total" placeholder="50000" maxlength="6"
                                                    class="form-control">
                                         </div>
                                     </div>
@@ -41,7 +41,7 @@
                                 <div class="col-lg-9">
                                     <div class="row">
                                         <div class="form-group">
-                                            <input disabled type="text" name="Total Amount" value="Cooperative Bank"
+                                            <input disabled type="text" name="bank" value="Cooperative Bank"
                                                    class="form-control">
                                         </div>
                                     </div>
@@ -72,7 +72,44 @@
                                 <div class="col-lg-9">
                                     <div class="row">
                                         <div class="form-group">
-                                            <input type="number" name="shares" placeholder="25000" maxlength="6"
+                                            <input type="number" name="loan" placeholder="25000" maxlength="6"
+                                                   class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <label class="col-lg-3 control-label">Miscellaneous</label>
+                                <div class="col-lg-9">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <input type="number" name="mis" placeholder="25000" maxlength="6"
+                                                   class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label class="col-lg-3 control-label">Merry Go Round</label>
+                                <div class="col-lg-9">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <input type="number" name="merry" placeholder="25000" maxlength="6"
+                                                   class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label class="col-lg-3 control-label">benevolent</label>
+                                <div class="col-lg-9">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <input type="number" name="ben" placeholder="25000" maxlength="6"
                                                    class="form-control">
                                         </div>
                                     </div>
