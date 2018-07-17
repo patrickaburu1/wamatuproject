@@ -17,7 +17,7 @@
                         <div class="media">
                             <a href="#" class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></a>
                             <div class="media-body">
-                                <span class="media-heading text-semibold">Patrick Kaburu</span>
+                                <span class="media-heading text-semibold">{{\Illuminate\Support\Facades\Auth::user()->name}}</span>
                                 <div class="text-size-mini text-muted">
                                     <i class="icon-pin text-size-small"></i> &nbsp;Kenya, Nrb
                                 </div>
@@ -47,15 +47,23 @@
                             <!-- /main -->
 
                             <!-- Forms -->
-                            <li class="navigation-header"><span>Forms</span> <i class="icon-menu" title="Forms"></i></li>
+                            <li class="navigation-header"><span>Contribution</span> <i class="icon-menu" title="Contributions"></i></li>
                             <li>
                                 <a href="#"><i class="icon-pencil3"></i> <span>Contribution</span></a>
                                 <ul>
-                                    <li ><a class="icon-add" href="{{url('contribute')}}">Send Contribution</a></li>
-                                    <li><a class="icon-add-to-list" href="{{url('contribute')}}">Pending Approval</a></li>
-                                    <li><a class="icon-stack-cancel" href="{{url('contribute')}}">Rejected Contributions</a></li>
-                                    <li><a class="icon-apple2" href="{{url('contribute')}}">Approved Contributions</a></li>
+                                    <li ><a class="-add" href="{{url('contribute')}}">Send Contribution</a></li>
+                                    <li><a class="-add-to-list" href="{{url('pending')}}">Pending Approval</a></li>
+                                    <li><a class="-stack-cancel" href="{{url('rejected')}}">Rejected Contributions</a></li>
+                                </ul>
+                            </li>
 
+                            <li class="navigation-header"><span>Loan</span> <i class="icon-menu" title="Loan"></i></li>
+                            <li>
+                                <a href="#"><i class="icon-pencil3"></i> <span>Loan</span></a>
+                                <ul>
+                                    <li ><a class="-add" href="{{url('contribute')}}">Apply Loan</a></li>
+                                    <li><a class="-add-to-list" href="{{url('pending')}}">Applied Loan</a></li>
+                                    <li><a class="-stack-cancel" href="{{url('rejected')}}">Installment Payments</a></li>
                                 </ul>
                             </li>
 
@@ -66,7 +74,7 @@
                             <li>
                                 <a href="#"><i class="icon-grid"></i> <span>Statements</span></a>
                                 <ul>
-                                    <li><a class="icon-statistics" href="components_modals.html">Mini-Statements</a></li>
+                                    <li><a class="icon-statistics" href="{{url("ministatements")}}">Mini-Statements</a></li>
                                     <li><a class="icon-graph" href="components_modals.html">Full Statements</a></li>
 
                                 </ul>
@@ -95,7 +103,7 @@
 
                 <!-- Footer -->
                 <div class="footer text-muted">
-                    &copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+                    &copy; 2018. <a href="#">Wamatu</a> by <a href="http://known.com" target="_blank">E-better</a>
                 </div>
                 <!-- /footer -->
 

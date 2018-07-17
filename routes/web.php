@@ -33,3 +33,12 @@ Route::post('/contribute', 'ContributionController@addContribution');
 Route::get('/contributions', 'ContributionController@contributions');
 
 
+Route::get('/ministatements', 'ContributionController@contributions');
+
+
+Route::get('/pending', 'ContributionController@pending');
+
+
+Route::get('/rejected', 'ContributionController@rejected');
+
+
