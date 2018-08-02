@@ -34,7 +34,7 @@ class ContributionController extends Controller
 
             $contribute->save();
 
-            return redirect('/');
+            return redirect('/home');
         }
 
         return redirect('/contribute');
@@ -43,8 +43,10 @@ class ContributionController extends Controller
 
 
     public function contributions(){
+        $member_id=Auth::user()->member_id;
 
-        $contributions=Contribution::all();
+
+        $contributions=Contribution::where([['member_id',$member_id],['status',1]])->get();
 
         return view('contribution.lastContribution', compact('contributions'));
     }
@@ -52,14 +54,20 @@ class ContributionController extends Controller
 
     public function pending(){
 
-        $contributions=Contribution::where('status',0)->get();
+
+        $member_id=Auth::user()->member_id;
+
+        $contributions=Contribution::where([['status',0],['member_id',$member_id]])->get();
 
         return view('contribution.pendingApproval', compact('contributions'));
     }
 
     public function rejected(){
 
-        $contributions=Contribution::where('status',2)->get();
+        $member_id=Auth::user()->member_id;
+
+
+        $contributions=Contribution::where([['status',2],['member_id',$member_id]])->get();
 
         return view('contribution.rejected', compact('contributions'));
     }
