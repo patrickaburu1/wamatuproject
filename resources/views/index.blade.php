@@ -8,13 +8,13 @@
                 <!-- Content area -->
                 <div class="content">
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <!-- 2 columns form -->
                         <!-- Deposits -->
                         <div class="row">
-                            <div class="panel panel-flat">
-                                <div class="panel-heading">
-                                    <h5 class="panel-title">Deposits</h5>
+                            <div class="panel1 panel-flat1">
+                                {{--<div class="panel-heading">
+                                    <h5 class="panel-title">Menu</h5>
                                     <div class="heading-elements">
                                         <ul class="icons-list">
                                             <li><a data-action="collapse"></a></li>
@@ -22,20 +22,43 @@
                                         </ul>
                                     </div>
                                 </div>
-
+--}}
                                 <div class="panel-body">
-                                    <div class="col-lg-4">
+
+                                    <a href="{{url("/contribute")}}" >   <div class="col-lg-4 panel panel-flat">
 
                                         <!-- Members online -->
-                                        <div class="panel bg-teal-800">
+                                        <div class="panel1  bg-blue-800">
                                             <div class="panel-body">
-                                                <div class="heading-elements">
-                                                    <span class="heading-text badge bg-teal-300">+53,6%</span>
-                                                </div>
+                                                {{--<div class="heading-elements">--}}
+                                                    {{--<span class="heading-text badge bg-teal-300">+53,6%</span>--}}
+                                                {{--</div>--}}
 
-                                                <h3 class="no-margin">Today</h3>
-                                                KES: 1,560.00
-                                                <div class="text-muted text-size-small">1 Member(s)</div>
+                                                <h3 class=""><i class="icon-statistics"></i>Contribute</h3>
+                                              {{--  KES: 1,560.00
+                                                <div class="text-muted text-size-small">1 Member(s)</div>--}}
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div id="members-online"></div>
+                                            </div>
+                                        </div>
+                                        <!-- /members online -->
+
+                                        </div></a>
+
+                                    <div class="col-lg-4 panel panel-flat">
+
+                                        <!-- Members online -->
+                                        <div class="panel1 panel-success">
+                                            <div class="panel-body  bg-blue-600">
+                                                {{--<div class="heading-elements">--}}
+                                                {{--<span class="heading-text badge bg-teal-300">+53,6%</span>--}}
+                                                {{--</div>--}}
+
+                                                <h3 class=""><i class="icon-statistics"></i>Apply Loan</h3>
+                                                {{--  KES: 1,560.00
+                                                  <div class="text-muted text-size-small">1 Member(s)</div>--}}
                                             </div>
 
                                             <div class="container-fluid">
@@ -46,46 +69,30 @@
 
                                     </div>
 
+                                <a href="{{url("/ministatements")}}" >   <div class="col-lg-4 panel panel-flat">
+                                        <!-- Members online -->
+                                        <div class="panel1 bg-teal-8001">
+                                            <div class="panel-body  bg-blue-400">
+                                                {{--<div class="heading-elements">--}}
+                                                {{--<span class="heading-text badge bg-teal-300">+53,6%</span>--}}
+                                                {{--</div>--}}
 
-                                    <div class="col-lg-4">
-
-                                        <!-- Current server load -->
-                                        <div class="panel bg-teal-600">
-                                            <div class="panel-body">
-                                                <div class="heading-elements">
-                                                    <span class="heading-text badge bg-teal-800">+53,6%</span>
-                                                </div>
-
-                                                <h3 class="no-margin">Month</h3>
-                                                KES: 13000.00
-                                                <div class="text-muted text-size-small">23 Member(s)</div>
+                                                <h3 class=""><i class="icon-statistics"></i>Statement</h3>
+                                                {{--  KES: 1,560.00
+                                                  <div class="text-muted text-size-small">1 Member(s)</div>--}}
                                             </div>
 
-                                            <div id="server-load"></div>
-                                        </div>
-                                        <!-- /current server load -->
-
-                                    </div>
-
-                                    <div class="col-lg-4">
-
-                                        <!-- Today's revenue -->
-                                        <div class="panel bg-teal-300">
-                                            <div class="panel-body">
-                                                <div class="heading-elements">
-                                                    <span class="heading-text badge bg-teal-600">+53,6%</span>
-                                                </div>
-
-                                                <h3 class="no-margin">Year</h3>
-                                                KES: 13000.00
-                                                <div class="text-muted text-size-small">23 Member(s)</div>
+                                            <div class="container-fluid">
+                                                <div id="members-online"></div>
                                             </div>
-
-                                            <div id="today-revenue"></div>
                                         </div>
-                                        <!-- /today's revenue -->
+                                        <!-- /members online -->
 
-                                    </div>
+                                    </div></a>
+
+
+
+
 
                                 </div>
                             </div>
@@ -96,7 +103,7 @@
                             <!-- Loans -->
                             <div class="panel panel-flat">
                                 <div class="panel-heading">
-                                    <h5 class="panel-title">Loans</h5>
+                                    <h5 class="panel-title">Info</h5>
                                     <div class="heading-elements">
                                         <ul class="icons-list">
                                             <li><a data-action="collapse"></a></li>
@@ -111,13 +118,10 @@
                                         <!-- Members online -->
                                         <div class="panel bg-blue-800">
                                             <div class="panel-body">
-                                                <div class="heading-elements">
-                                                    <span class="heading-text badge bg-blue-300">+53,6%</span>
-                                                </div>
 
-                                                <h3 class="no-margin">Pending </h3>
-                                                KES: 13000.00
-                                                <div class="text-muted text-size-small">23 Member(s)</div>
+                                                <h3 class="no-margin">Last Contribution </h3>
+                                                <div class="text-muted text-size-large text-white"> Date :: <span class="text-size-large text-white">{{$lastcontribution->date}}</span>
+                                                Amount ::  <span class="heading-text badge bg-danger-600">KES: {{number_format($lastcontribution->amount)}}</span></div>
                                             </div>
 
                                             <div class="container-fluid">
@@ -127,20 +131,13 @@
                                         <!-- /members online -->
 
                                     </div>
-
-
                                     <div class="col-lg-4">
 
                                         <!-- Current server load -->
                                         <div class="panel bg-blue-600">
                                             <div class="panel-body">
-                                                <div class="heading-elements">
-                                                    <span class="heading-text badge bg-blue-800">+53,6%</span>
-                                                </div>
-
-                                                <h3 class="no-margin">Approved</h3>
-                                                KES: 13000.00
-                                                <div class="text-muted text-size-small">23 Member(s)</div>
+                                                <h3 class="no-margin">Shares</h3>
+                                                <div class="text-muted text-size-large text-white">Total Shares:: <span class="heading-btn badge bg-danger-600 right">KES: {{number_format($shares)}}.00</span></div>
                                             </div>
 
                                             <div id="server-load"></div>
@@ -152,15 +149,14 @@
                                     <div class="col-lg-4">
 
                                         <!-- Today's revenue -->
-                                        <div class="panel bg-blue-300">
+                                        <div class="panel bg-blue-400">
                                             <div class="panel-body">
                                                 <div class="heading-elements">
-                                                    <span class="heading-text badge bg-blue-600">+53,6%</span>
+                                                    <span class="heading-text badge bg-danger-600">KES 000.00</span>
                                                 </div>
 
-                                                <h3 class="no-margin">Year</h3>
-                                                KES: 1303000.00
-                                                <div class="text-muted text-size-small">23 Member(s)</div>
+                                                <h3 class="no-margin">Loan</h3>
+                                               Loan Balance
                                             </div>
 
                                             <div id="today-revenue"></div>
@@ -177,186 +173,7 @@
                     </div>
 
                     <!--                    Graph of both deposits and loans-->
-                    <div class="col-lg-6">
-                        <!-- Daily sales -->
-                        <div class="panel panel-flat">
-                            <div class="panel-heading">
-                                <h6 class="panel-title">Deposit / Loans Trend Graph</h6>
-                                <div class="heading-elements">
-                                <span class="heading-text">Balance: <span
-                                            class="text-bold text-danger-600 position-right">$4,378</span></span>
-                                    <ul class="icons-list">
-                                        <li class="dropdown text-muted">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                                        class="icon-cog3"></i> <span class="caret"></span></a>
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li><a href="#"><i class="icon-sync"></i> Update data</a></li>
-                                                <li><a href="#"><i class="icon-list-unordered"></i> Detailed log</a>
-                                                </li>
-                                                <li><a href="#"><i class="icon-pie5"></i> Statistics</a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#"><i class="icon-cross3"></i> Clear list</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
 
-                            <div class="panel-body">
-                                <div id="sales-heatmap"></div>
-                            </div>
-
-                            <div class="table-responsive">
-                                <table class="table text-nowrap">
-                                    <thead>
-                                    <tr>
-                                        <th>Application</th>
-                                        <th>Time</th>
-                                        <th>Price</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="media-left media-middle">
-                                                <a href="#" class="btn bg-primary-400 btn-rounded btn-icon btn-xs">
-                                                    <span class="letter-icon"></span>
-                                                </a>
-                                            </div>
-
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <a href="#" class="letter-icon-title">Sigma application</a>
-                                                </div>
-
-                                                <div class="text-muted text-size-small"><i
-                                                            class="icon-checkmark3 text-size-mini position-left"></i>
-                                                    New
-                                                    order
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span class="text-muted text-size-small">06:28 pm</span>
-                                        </td>
-                                        <td>
-                                            <h6 class="text-semibold no-margin">$49.90</h6>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <div class="media-left media-middle">
-                                                <a href="#" class="btn bg-danger-400 btn-rounded btn-icon btn-xs">
-                                                    <span class="letter-icon"></span>
-                                                </a>
-                                            </div>
-
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <a href="#" class="letter-icon-title">Alpha application</a>
-                                                </div>
-
-                                                <div class="text-muted text-size-small"><i
-                                                            class="icon-spinner11 text-size-mini position-left"></i>
-                                                    Renewal
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span class="text-muted text-size-small">04:52 pm</span>
-                                        </td>
-                                        <td>
-                                            <h6 class="text-semibold no-margin">$90.50</h6>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <div class="media-left media-middle">
-                                                <a href="#" class="btn bg-indigo-400 btn-rounded btn-icon btn-xs">
-                                                    <span class="letter-icon"></span>
-                                                </a>
-                                            </div>
-
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <a href="#" class="letter-icon-title">Delta application</a>
-                                                </div>
-
-                                                <div class="text-muted text-size-small"><i
-                                                            class="icon-lifebuoy text-size-mini position-left"></i>
-                                                    Support
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span class="text-muted text-size-small">01:26 pm</span>
-                                        </td>
-                                        <td>
-                                            <h6 class="text-semibold no-margin">$60.00</h6>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <div class="media-left media-middle">
-                                                <a href="#" class="btn bg-success-400 btn-rounded btn-icon btn-xs">
-                                                    <span class="letter-icon"></span>
-                                                </a>
-                                            </div>
-
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <a href="#" class="letter-icon-title">Omega application</a>
-                                                </div>
-
-                                                <div class="text-muted text-size-small"><i
-                                                            class="icon-lifebuoy text-size-mini position-left"></i>
-                                                    Support
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span class="text-muted text-size-small">11:46 am</span>
-                                        </td>
-                                        <td>
-                                            <h6 class="text-semibold no-margin">$55.00</h6>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <div class="media-left media-middle">
-                                                <a href="#" class="btn bg-danger-400 btn-rounded btn-icon btn-xs">
-                                                    <span class="letter-icon"></span>
-                                                </a>
-                                            </div>
-
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <a href="#" class="letter-icon-title">Alpha application</a>
-                                                </div>
-
-                                                <div class="text-muted text-size-small"><i
-                                                            class="icon-spinner11 text-size-mini position-left"></i>
-                                                    Renewal
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span class="text-muted text-size-small">10:29 am</span>
-                                        </td>
-                                        <td>
-                                            <h6 class="text-semibold no-margin">$90.50</h6>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <!-- /daily sales -->
-                    </div>
 
 
                     <!--  end of code                  -->
