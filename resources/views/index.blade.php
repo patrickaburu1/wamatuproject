@@ -34,7 +34,7 @@
                                                     {{--<span class="heading-text badge bg-teal-300">+53,6%</span>--}}
                                                 {{--</div>--}}
 
-                                                <h3 class=""><i class="icon-statistics"></i>Contribute</h3>
+                                                <h3 class=""><i class="icon-pencil7"></i>Contribute</h3>
                                               {{--  KES: 1,560.00
                                                 <div class="text-muted text-size-small">1 Member(s)</div>--}}
                                             </div>
@@ -56,7 +56,7 @@
                                                 {{--<span class="heading-text badge bg-teal-300">+53,6%</span>--}}
                                                 {{--</div>--}}
 
-                                                <h3 class=""><i class="icon-statistics"></i>Apply Loan</h3>
+                                                <h3 class=""><i class="icon-stack2"></i>Apply Loan</h3>
                                                 {{--  KES: 1,560.00
                                                   <div class="text-muted text-size-small">1 Member(s)</div>--}}
                                             </div>
@@ -183,7 +183,7 @@
 
                         <div class="panel panel-flat">
                             <div class="panel-heading">
-                                <h6 class="panel-title">Support tickets</h6>
+                                <h6 class="panel-title">Last 5 Contributions </h6>
                                 <div class="heading-elements">
                                     <button type="button"
                                             class="btn btn-link daterange-ranges heading-btn text-semibold">
@@ -194,77 +194,65 @@
 
                             <div class="table-responsive">
                                 <table class="table table-xlg text-nowrap">
-                                    <tbody>
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="media-left media-middle">
-                                                <div id="tickets-status"></div>
-                                            </div>
-
-                                            <div class="media-left">
-                                                <h5 class="text-semibold no-margin">14,327
-                                                    <small class="text-success text-size-base"><i
-                                                                class="icon-arrow-up12"></i> (+2.9%)
-                                                    </small>
-                                                </h5>
-                                                <span class="text-muted"><span
-                                                            class="status-mark border-success position-left"></span> Jun 16, 10:00 am</span>
-                                            </div>
-                                        </td>
-
-                                        <td class="col-md-3">
-                                            <div class="media-left media-middle">
-                                                <a href="#"
-                                                   class="btn border-indigo-400 text-indigo-400 btn-flat btn-rounded btn-xs btn-icon"><i
-                                                            class="icon-alarm-add"></i></a>
-                                            </div>
-
-                                            <div class="media-left">
-                                                <h5 class="text-semibold no-margin">
-                                                    1,132
-                                                    <small class="display-block no-margin">total tickets</small>
-                                                </h5>
-                                            </div>
-                                        </td>
-
-                                        <td class="col-md-3">
-                                            <div class="media-left media-middle">
-                                                <a href="#"
-                                                   class="btn border-indigo-400 text-indigo-400 btn-flat btn-rounded btn-xs btn-icon"><i
-                                                            class="icon-spinner11"></i></a>
-                                            </div>
-
-                                            <div class="media-left">
-                                                <h5 class="text-semibold no-margin">
-                                                    06:25:00
-                                                    <small class="display-block no-margin">response time</small>
-                                                </h5>
-                                            </div>
-                                        </td>
-
-                                        <td class="text-right col-md-2">
-                                            <a href="#" class="btn bg-teal-400"><i
-                                                        class="icon-statistics position-left"></i> Report</a>
-                                        </td>
+                                    <thead>
+                                    <tr role="row">
+                                        <th class="text-center sorting_disabled" rowspan="1" colspan="1"
+                                            aria-label="Actions" style="width: 100px;">Status
+                                        </th>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                            colspan="1" aria-sort="ascending"
+                                            aria-label="Name: activate to sort column descending">benevolent
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                            colspan="1" aria-label="Position: activate to sort column ascending">Shares
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                            colspan="1" aria-label="Age: activate to sort column ascending">Loan
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                            colspan="1" aria-label="Start date: activate to sort column ascending">Miscellaneous
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                            colspan="1" aria-label="Salary: activate to sort column ascending">merry_go_round
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                            colspan="1" aria-label="Salary: activate to sort column ascending">Total
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                            colspan="1" aria-label="Salary: activate to sort column ascending">Date
+                                        </th>
                                     </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    @foreach($contributions as $contribution)
+
+                                        <tr role="row" class="odd">
+                                            <?php
+                                            if($contribution->status==0){
+                                                echo '<td class="text-center"><span class="label label-info">PENDING</span></td>';
+                                            }elseif($contribution->status==1){
+                                                echo '<td class="text-center"><span class="label label-success">APPROVED</span></td>';
+                                            }else{
+                                                echo '<th class="text-center "><span class="label label-danger">REJECTED</span></th>';
+                                            }
+                                            ?>
+                                            <td class="sorting_1">{{number_format($contribution->benevolent_contribution_type)}}</td>
+                                            <td>{{number_format($contribution->shares_contribution_type)}}</td>
+                                            <td>{{number_format($contribution->loan_payment_contribution_type)}}</td>
+                                            <td>{{number_format($contribution->Miscellaneous_contribution_type)}}</td>
+                                            <td><span >{{number_format($contribution->merry_go_round_contribution_type)}}</span></td>
+                                            <td><span >{{number_format($contribution->amount)}}</span></td>
+                                            <td>{{$contribution->date}}</td>
+
+
+                                        </tr>
+
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
 
-                            <div class="table-responsive">
-                                <table class="table text-nowrap">
-                                    <thead>
-                                    <tr>
-                                        <th style="width: 50px">Due</th>
-                                        <th style="width: 300px;">User</th>
-                                        <th>Description</th>
-                                        <th class="text-center" style="width: 20px;"><i class="icon-arrow-down12"></i>
-                                        </th>
-                                    </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
-                            </div>
                         </div>
 
                     </div>

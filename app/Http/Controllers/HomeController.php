@@ -30,8 +30,11 @@ class HomeController extends Controller
         $shares=Contribution::where([['member_id',$member_id],['status',1]])->sum('shares_contribution_type');
 
         $lastcontribution=Contribution::where([['member_id',$member_id],['status',1]])->orderby('id','desc')->first();
+
+
+        $contributions=Contribution::where('member_id',$member_id)->orderby('id','desc')->limit(5)->get();
         //return view('home');
-        return view('index',compact('shares','lastcontribution'));
+        return view('index',compact('shares','lastcontribution','contributions'));
     }
 
 
