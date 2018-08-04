@@ -5,7 +5,7 @@
 
         <div class="panel panel-flat">
             <div class="panel-heading">
-                <h5 class="panel-title">Contributions Pending Approval<a class="heading-elements-toggle"><i
+                <h5 class="panel-title">Applied Loans <a class="heading-elements-toggle"><i
                                 class="icon-more"></i></a></h5>
                 <div class="heading-elements">
                     <ul class="icons-list">
@@ -26,26 +26,24 @@
                         <tr role="row">
                             <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
                                 colspan="1" aria-sort="ascending"
-                                aria-label="Name: activate to sort column descending">benevolent
+                                aria-label="Name: activate to sort column descending">Status
+                            </th>
+                            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                colspan="1" aria-sort="ascending"
+                                aria-label="Name: activate to sort column descending">Amount
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                colspan="1" aria-label="Position: activate to sort column ascending">Shares
+                                colspan="1" aria-label="Position: activate to sort column ascending">Repayment Period
+                            </th>
+
+                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                colspan="1" aria-label="Start date: activate to sort column ascending">Monthly Installment
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                colspan="1" aria-label="Age: activate to sort column ascending">Loan
+                                colspan="1" aria-label="Start date: activate to sort column ascending">Interest (PA)
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                colspan="1" aria-label="Start date: activate to sort column ascending">Miscellaneous
-                                date
-                            </th>
-                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                colspan="1" aria-label="Salary: activate to sort column ascending">merry_go_round
-                            </th>
-                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                colspan="1" aria-label="Salary: activate to sort column ascending">Total
-                            </th>
-                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                colspan="1" aria-label="Salary: activate to sort column ascending">Date
+                                colspan="2" aria-label="Salary: activate to sort column ascending">Date
                             </th>
 
                         </tr>
@@ -53,16 +51,23 @@
                         <tbody>
 
 
-                        @foreach($contributions as $contribution)
+                        @foreach($loans as $loan)
 
-                            <tr role="row" class="">
-                                <td class="sorting_1">{{number_format($contribution->benevolent_contribution_type)}}</td>
-                                <td>{{number_format($contribution->shares_contribution_type)}}</td>
-                                <td>{{number_format($contribution->loan_payment_contribution_type)}}</td>
-                                <td>{{number_format($contribution->Miscellaneous_contribution_type)}}</td>
-                                <td><span >{{number_format($contribution->merry_go_round_contribution_type)}}</span></td>
-                                <td><span >{{number_format($contribution->amount)}}</span></td>
-                                <td class="">{{$contribution->date}}</td>
+                            <tr role="row" class="odd">
+                                <?php
+                                if($loan->approval_status==0){
+                                    echo '<td class=""><span class="label label-info">PENDING</span></td>';
+                                }elseif($loan->approval_status==1){
+                                    echo '<td class=""><span class="label label-success">APPROVED</span></td>';
+                                }else{
+                                    echo '<th class=" "><span class="label label-danger">REJECTED</span></th>';
+                                }
+                                ?>
+                                <td class="sorting_1">{{number_format($loan->loan_amount)}}</td>
+                                <td>{{$loan->repayments_period}} (Months)</td>
+                                <td>{{number_format($loan->monthly_installment)}}</td>
+                                <td>{{$loan->interest_rate}}%</td>
+                                <td>{{$loan->created}}</td>
 
                             </tr>
 

@@ -61,9 +61,9 @@
                             <li>
                                 <a href="#"><i class="icon-pencil3"></i> <span>Loan</span></a>
                                 <ul>
-                                    <li ><a class="-add" href="{{url('contribute')}}">Apply Loan</a></li>
-                                    <li><a class="-add-to-list" href="{{url('pending')}}">Applied Loan</a></li>
-                                    <li><a class="-stack-cancel" href="{{url('rejected')}}">Installment Payments</a></li>
+                                    <li ><a class="-add" href="{{url('apply-loan')}}">Apply Loan</a></li>
+                                    <li><a class="-add-to-list" href="{{url('applied-loans')}}">Applied Loan</a></li>
+                                    <li><a class="-stack-cancel" href="{{url('rejected')}}"> Payment Installments</a></li>
                                 </ul>
                             </li>
 
@@ -75,7 +75,7 @@
                                 <a href="#"><i class="icon-grid"></i> <span>Statements</span></a>
                                 <ul>
                                     <li><a class="icon-statistics" href="{{url("ministatements")}}">Mini-Statements</a></li>
-                                    <li><a class="icon-graph" href="components_modals.html">Full Statements</a></li>
+                                    <li><a class="icon-graph" href="{{url("ministatements")}}">Full Statements</a></li>
 
                                 </ul>
                             </li>

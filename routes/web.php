@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/test', function () {
-    return view('welcome');
+Route::get('/signin', function () {
+    return view('auth1.login');
 });
 
 
@@ -46,5 +46,13 @@ Route::group(['middleware'=>'auth'], function () {
 
     /*Loans*/
     Route::get('/apply-loan', 'LoanController@index');
+
+    Route::post('/apply-loan', 'LoanController@applyLoan');
+
+
+    Route::get('/applied-loans', 'LoanController@appliedLoans');
+
+
+    Route::get('/loans-repayment', 'LoanController@loanRepayment');
 
 });

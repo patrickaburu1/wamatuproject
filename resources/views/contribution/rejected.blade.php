@@ -5,7 +5,7 @@
 
         <div class="panel panel-flat">
             <div class="panel-heading">
-                <h5 class="panel-title">Rejected<a class="heading-elements-toggle"><i
+                <h5 class="panel-title">Rejected Contribution(s)<a class="heading-elements-toggle"><i
                                 class="icon-more"></i></a></h5>
                 <div class="heading-elements">
                     <ul class="icons-list">
@@ -47,9 +47,7 @@
                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
                                 colspan="1" aria-label="Salary: activate to sort column ascending">Date
                             </th>
-                            <th class="text-center sorting_disabled" rowspan="1" colspan="1"
-                                aria-label="Actions" style="width: 100px;">Actions
-                            </th>
+
                         </tr>
                         </thead>
                         <tbody>
@@ -65,25 +63,6 @@
                                 <td><span >{{number_format($contribution->merry_go_round_contribution_type)}}</span></td>
                                 <td><span >{{number_format($contribution->amount)}}</span></td>
                                 <td class="">{{$contribution->date}}</td>
-                                <td class="text-center">
-                                    <ul class="icons-list">
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                                               aria-expanded="false">
-                                                <i class="icon-menu9"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a>
-                                                </li>
-                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a>
-                                                </li>
-                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </td>
                             </tr>
 
                         @endforeach

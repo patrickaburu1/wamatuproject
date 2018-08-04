@@ -48,7 +48,7 @@ class ContributionController extends Controller
 
         $contributions=Contribution::where([['member_id',$member_id],['status',1]])->get();
 
-        return view('contribution.lastContribution', compact('contributions'));
+        return view('contribution.statement', compact('contributions'));
     }
 
 
