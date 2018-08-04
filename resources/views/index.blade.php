@@ -137,7 +137,7 @@
                                         <div class="panel bg-blue-600">
                                             <div class="panel-body">
                                                 <h3 class="no-margin">Shares</h3>
-                                                <div class="text-muted text-size-large text-white">Total Shares:: <span class="heading-btn badge bg-danger-600 right">KES: {{number_format($shares)}}.00</span></div>
+                                                <div class="text-muted text-size-large text-white">Total Shares:: <span class="heading-btn badge bg-danger-600 right">KES: {{number_format($shares->available_amount)}}.00</span></div>
                                             </div>
 
                                             <div id="server-load"></div>
@@ -151,12 +151,13 @@
                                         <!-- Today's revenue -->
                                         <div class="panel bg-blue-400">
                                             <div class="panel-body">
-                                                <div class="heading-elements">
+                                              {{--  <div class="heading-elements">
                                                     <span class="heading-text badge bg-danger-600">KES 000.00</span>
-                                                </div>
+                                                </div>--}}
 
                                                 <h3 class="no-margin">Loan</h3>
-                                               Loan Balance
+                                                <div class="text-muted text-size-large text-white">  Loan Balance:: <span class="heading-btn badge bg-danger-600 right">KES: {{number_format($shares->loan_balance)}}.00</span></div>
+
                                             </div>
 
                                             <div id="today-revenue"></div>

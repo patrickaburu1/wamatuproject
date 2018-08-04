@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contribution;
+use App\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,7 +28,9 @@ class HomeController extends Controller
     {
         $member_id=Auth::user()->member_id;
 
-        $shares=Contribution::where([['member_id',$member_id],['status',1]])->sum('shares_contribution_type');
+        $shares=Member::where('id',$member_id)->first();
+
+       /* $shares=Contribution::where([['member_id',$member_id],['status',1]])->sum('shares_contribution_type');*/
 
         $lastcontribution=Contribution::where([['member_id',$member_id],['status',1]])->orderby('id','desc')->first();
 

@@ -91,7 +91,7 @@
                                     <div class="row">
                                         <div class="form-group">
                                             <input type="file" name="receipt"
-                                                   class="form-control" >
+                                                   class="form-contro">
                                         </div>
                                     </div>
                                 </div>
@@ -99,7 +99,7 @@
 
 
                             <div class="text-right">
-                                <button type="submit"  class="btn btn-primary">Send Contribution <i
+                                <button type="submit" class="btn btn-primary">Send Contribution <i
                                             class="icon-arrow-right14 position-right"></i></button>
                             </div>
 

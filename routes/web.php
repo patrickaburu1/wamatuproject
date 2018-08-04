@@ -22,23 +22,29 @@ Route::get('/test', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::group(['middleware'=>'auth'], function () {
 
-Route::get('/contribute', 'ContributionController@index');
+    Route::get('/home', 'HomeController@index');
 
-
-Route::post('/contribute', 'ContributionController@addContribution');
-
-
-Route::get('/contributions', 'ContributionController@contributions');
+    Route::get('/contribute', 'ContributionController@index');
 
 
-Route::get('/ministatements', 'ContributionController@contributions');
+    Route::post('/contribute', 'ContributionController@addContribution');
 
 
-Route::get('/pending', 'ContributionController@pending');
+    Route::get('/contributions', 'ContributionController@contributions');
 
 
-Route::get('/rejected', 'ContributionController@rejected');
+    Route::get('/ministatements', 'ContributionController@contributions');
 
 
+    Route::get('/pending', 'ContributionController@pending');
+
+/*rejecet contributions*/
+    Route::get('/rejected', 'ContributionController@rejected');
+
+
+    /*Loans*/
+    Route::get('/apply-loan', 'LoanController@index');
+
+});
