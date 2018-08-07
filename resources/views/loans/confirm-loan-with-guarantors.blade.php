@@ -38,61 +38,77 @@
                                     </div>
                                 </div>
                             </div>
+                            <input type="hidden" name="loan_amount" value="{{$loan_amount}}" hidden>
 
                             <div class="panel-body">
-                                <div class="row">
-                                    <label class="col-lg-3 control-label">Guarantor 1</label>
-                                    <div class="col-lg-9">
-                                        <div class="row">
-                                            <div class="form-group">
-                                                <input type="number" name="guarantor1"
-                                                       placeholder="member number" maxlength="5"
-                                                       class="col-lg-5">
 
-                                                <input type="number" name="guarantor1amount"
-                                                       placeholder="Amount Guaranteed" maxlength="9"
-                                                       class="col-lg-4">
+                                <div class="row panel">
+                                    <div class="container">
+                                        <h4 class="col-sm12 control-label">Guarantor 1</h4>
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Member Number</label>
+                                                    <input type="number" name="guarantor1"
+                                                           placeholder="member number" maxlength="5"
+                                                           class="col-sm-5" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Amount Guaranteed</label>
+                                                    <input type="number" name="guarantor1amount"
+                                                           placeholder="Amount Guaranteed" maxlength="9"
+                                                           class="col-sm-5" required>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <input type="hidden" name="loan_amount" value="{{$loan_amount}}" disabled>
+                                <div class="row panel">
+                                    <div class="container">
+                                        <h4 class="col-sm12 control-label">Guarantor 2</h4>
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Member Number</label>
+                                                    <input type="number" name="guarantor2"
+                                                           placeholder="member number" maxlength="5"
+                                                           class="col-sm-5" >
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Amount Guaranteed</label>
+                                                    <input type="number" name="guarantor2amount"
+                                                           placeholder="Amount Guaranteed" maxlength="9"
+                                                           class="col-sm-5" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                <div class="row">
-                                    <label class="col-lg-3 control-label">Guarantor 2</label>
-                                    <div class="col-lg-9">
-                                        <div class="row">
-                                            <div class="form-group">
-                                                <input type="number" name="guarantor2"
-                                                       placeholder="Guarantor 2 member number" maxlength="4"
-                                                       class="col-lg-5">
-
-                                                <input type="number" name="guarantor2amount"
-                                                       placeholder="Amount Guaranteed" maxlength="9"
-                                                       class="col-lg-4">
+                                <div class="row panel">
+                                    <div class="container">
+                                        <h4 class="col-sm12 control-label">Guarantor 3</h4>
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Member Number</label>
+                                                    <input type="number" name="guarantor3"
+                                                           placeholder="member number" maxlength="5"
+                                                           class="col-sm-5" >
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Amount Guaranteed</label>
+                                                    <input type="number" name="guarantor3amount"
+                                                           placeholder="Amount Guaranteed" maxlength="9"
+                                                           class="col-sm-5" >
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
 
-                                <div class="row">
-                                    <label class="col-lg-3 control-label">Guarantor 3</label>
-                                    <div class="col-lg-9">
-                                        <div class="row">
-                                            <div class="form-group">
-                                                <input type="number" name="guarantor3"
-                                                       placeholder="Guarantor 3 member number" maxlength="4"
-                                                       class="col-lg-5">
-
-                                                <input type="number" name="guarantor3amount"
-                                                       placeholder="Amount Guaranteed" maxlength="9"
-                                                       class="col-lg-4">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <div class="row">
                                     <div class="col-lg-2 text-right">

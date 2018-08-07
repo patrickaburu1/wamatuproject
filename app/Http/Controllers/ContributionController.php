@@ -20,6 +20,22 @@ class ContributionController extends Controller
 
             $member_id=Auth::user()->member_id;
 
+            request()->validate([
+
+                'image' => 'required|file|mimes:pdf|max:8048',
+
+            ]);
+
+           $url=  url('/');
+
+            $imageName = time().'.'.request()->image->getClientOriginalExtension();
+
+            request()->image->move(public_path('images'), $imageName);
+
+
+            $receipt=$url."/public/images/".$imageName;
+
+
             $contribute=new Contribution();
             $contribute->tranaction_id="1";
             $contribute->member_id=$member_id;
@@ -30,7 +46,7 @@ class ContributionController extends Controller
             $contribute->benevolent_contribution_type=$request->ben;
             $contribute->recept_number="test";
             $contribute->amount=$request->total;
-            $contribute->recept_meme="test";
+            $contribute->recept_meme=$receipt;
 
             $contribute->save();
 

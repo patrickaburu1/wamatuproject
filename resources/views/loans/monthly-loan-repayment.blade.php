@@ -1,5 +1,6 @@
 @extends('nav.main')
 @section('content')
+    @include('partials.flash')
     <div class="content">
 
 

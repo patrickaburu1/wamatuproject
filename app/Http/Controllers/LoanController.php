@@ -90,7 +90,7 @@ class LoanController extends Controller
         $loan->loan_amount = $request->loan_amount;
         $loan->member_id = $member_id;
         $loan->loan_type = "loan";
-        $loan->gurantors = $request->guarantor1.$request.guarantor1amount;
+        $loan->gurantors = $request->guarantor1."amount".$request->guarantor1amount.",". $request->guarantor2."amount".$request->guarantor2amount.",". $request->guarantor3."amount".$request->guarantor3amount;
         $loan->save();
 
         return redirect('home')->with('success', 'Successfully Applied Loan, Please wait as it is reviewed');

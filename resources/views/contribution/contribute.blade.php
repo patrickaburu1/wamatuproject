@@ -1,11 +1,12 @@
 @extends('nav.main')
 @section('content')
+    @include('partials.flash')
     <div class="content">
         <div class="panel panel-flat">
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-8">
-                        <form class="" method="post" action="{{url('/contribute')}}">
+                        <form class="" method="post" action="{{url('/contribute')}}"  enctype="multipart/form-data">
                             {{csrf_field()}}
                             <legend class="text-semibold"><i class="icon-reading position-left"></i> Contribute</legend>
 
@@ -90,7 +91,7 @@
                                 <div class="col-lg-9">
                                     <div class="row">
                                         <div class="form-group">
-                                            <input type="file" name="receipt"
+                                            <input type="file" name="image" accept="application/pdf"
                                                    class="form-contro">
                                         </div>
                                     </div>

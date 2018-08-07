@@ -15,15 +15,15 @@
     return view('auth.login');
 });*/
 
-Auth::routes();
+
 
 Route::get('/', 'AuthController@index');
-Route::get('/login', 'AuthController@index');
+Route::get('/login', 'AuthController@index','login');
 
 Route::get('/signin', 'AuthController@index');
 Route::post('/signin', 'AuthController@postSignIn');
 
-
+Auth::routes();
 
 
 Route::group(['middleware'=>'auth'], function () {
