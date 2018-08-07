@@ -47,6 +47,17 @@ Route::group(['middleware'=>'auth'], function () {
     /*Loans*/
     Route::get('/apply-loan', 'LoanController@index');
 
+
+    Route::get('/apply-loan-step2', 'LoanController@step2');
+
+    Route::post('/apply-loan-eligibility', 'LoanController@checkForEligibility');
+
+
+    Route::post('/apply-loan-without-guarantors', 'LoanController@applyWithoutGuarantor');
+
+    Route::post('/apply-loan-with-guarantors', 'LoanController@applyWithGuarantor');
+
+
     Route::post('/apply-loan', 'LoanController@applyLoan');
 
 

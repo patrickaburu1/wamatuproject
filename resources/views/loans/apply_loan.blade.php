@@ -2,13 +2,10 @@
 @section('content')
     @include('partials.flash')
 
-
-
     <div class="content">
 
         <div class="panel panel-flat">
             <div class="panel-body">
-
 
 
                 <div class="row">
@@ -35,14 +32,14 @@
                                 <div class="col-lg-9">
                                     <div class="row">
                                         <div class="form-group">
-                                           <select name="period"  class="form-control" >
-                                               <option value="12">12 Months</option>
-                                               <option value="24">24 Months</option>
-                                               <option value="36">36 Months</option>
-                                               <option value="48">48 Months</option>
-                                               <option value="60">60 Months</option>
-                                               <option value="72">72 Months</option>
-                                           </select>
+                                            <select name="period" class="form-control">
+                                                <option value="12">12 Months</option>
+                                                <option value="24">24 Months</option>
+                                                <option value="36">36 Months</option>
+                                                <option value="48">48 Months</option>
+                                                <option value="60">60 Months</option>
+                                                <option value="72">72 Months</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -68,7 +65,7 @@
                                     <div class="row">
                                         <div class="form-group">
                                             <input type="number" name="guarantor1" placeholder="215" maxlength="4"
-                                                   class="form-control" >
+                                                   class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +77,7 @@
                                     <div class="row">
                                         <div class="form-group">
                                             <input type="number" name="guarantor2" placeholder="215" maxlength="4"
-                                                   class="form-control" >
+                                                   class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -92,7 +89,7 @@
                                     <div class="row">
                                         <div class="form-group">
                                             <input type="number" name="guarantor3" placeholder="215" maxlength="4"
-                                                   class="form-control" >
+                                                   class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -100,11 +97,12 @@
 
 
                             <div class="row">
-                                <label class="col-lg-3 control-label">Upload Loan Document Signed By all Guarantor(s) (Pdf) format:</label>
+                                <label class="col-lg-3 control-label">Upload Loan Document Signed By all Guarantor(s)
+                                    (Pdf) format:</label>
                                 <div class="col-lg-9">
                                     <div class="row">
                                         <div class="form-group">
-                                            <input type="file" name="loan-doc" class="form-control1" >
+                                            <input type="file" name="loan-doc" class="form-control1">
                                         </div>
                                     </div>
                                 </div>
