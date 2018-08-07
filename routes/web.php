@@ -11,16 +11,20 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('auth.login');
-});
-
-Route::get('/signin', function () {
-    return view('auth1.login');
-});
-
+});*/
 
 Auth::routes();
+
+Route::get('/', 'AuthController@index');
+Route::get('/login', 'AuthController@index');
+
+Route::get('/signin', 'AuthController@index');
+Route::post('/signin', 'AuthController@postSignIn');
+
+
+
 
 Route::group(['middleware'=>'auth'], function () {
 

@@ -27,6 +27,7 @@
 <!-- Page container -->
 <div class="page-container" style="min-height:333.1666717529297px">
 
+
     <!-- Page content -->
     <div class="page-content">
 
@@ -36,10 +37,12 @@
             <!-- Content area -->
             <div class="content">
 
-                <!-- Simple login form -->
-                <form action="index.html">
-                    <div class="panel panel-body login-form">
 
+                <!-- Simple login form -->
+                <form method="post" action="{{url('/signin')}}">
+                    {{csrf_field()}}
+                    <div class="panel panel-body login-form">
+                        @include('partials.flash')
 
                         <div class="text-center">
                             <div class=""></div>
@@ -49,14 +52,14 @@
                         </div>
 
                         <div class="form-group has-feedback has-feedback-left">
-                            <input class="form-control" placeholder="Username" type="text">
+                            <input name="username" class="form-control" placeholder="Username" type="text">
                             <div class="form-control-feedback">
                                 <i class="icon-user text-muted"></i>
                             </div>
                         </div>
 
                         <div class="form-group has-feedback has-feedback-left">
-                            <input class="form-control" placeholder="Password" type="password">
+                            <input name="password" class="form-control" placeholder="Password" type="password">
                             <div class="form-control-feedback">
                                 <i class="icon-lock2 text-muted"></i>
                             </div>
@@ -67,7 +70,7 @@
                         </div>
 
                         <div class="text-center">
-                            <a href="login_password_recover.html">Forgot password?</a>
+                            <a href="{{url('signin')}}">Forgot password?</a>
                         </div>
                     </div>
                 </form>
