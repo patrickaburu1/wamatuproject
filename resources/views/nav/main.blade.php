@@ -24,6 +24,8 @@
 @include('nav.side')
 
 
+
+
 <!-- Core JS files -->
 <script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
 <script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
