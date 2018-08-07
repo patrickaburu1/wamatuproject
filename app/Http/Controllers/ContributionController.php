@@ -34,10 +34,13 @@ class ContributionController extends Controller
 
             $contribute->save();
 
-            return redirect('/home');
+            return redirect('/home')->with('success','Successfully sent contribution please wait for the approval');
+
+
         }
 
-        return redirect('/contribute');
+
+        return redirect('/contribute')->with('error','Sorry something went wrong, please try again later ');
 
     }
 
