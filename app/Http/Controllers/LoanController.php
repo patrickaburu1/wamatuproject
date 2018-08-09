@@ -86,11 +86,41 @@ class LoanController extends Controller
 
         $member_id = Auth::user()->member_id;
 
+        /*find guarantor details guaranro 1 must exist*/
+        $guarantor=Member::where('id',$request->guarantor1)->first();
+
+        if(empty($guarantor)){
+            return redirect('apply-loan')->with('error','Member number for guarantor 1 doesnt exist');
+        }
+
+        $guarantor2="";
+        $guarantor3="";
+
+        /*check if other guarantor*/
+        if($request->guarantor2!=null){
+            $guarantor2=Member::where('id',$request->guarantor2)->first();
+
+            if(empty($guarantor2)){
+                return redirect('apply-loan')->with('error','Member number for guarantor 2 doesnt exist');
+            }
+
+        }
+
+        if($request->guarantor3!=null){
+            $guarantor3=Member::where('id',$request->guarantor3)->first();
+
+            if(empty($guarantor3)){
+                return redirect('apply-loan')->with('error','Member number for guarantor 3 doesnt exist');
+            }
+
+        }
+
         $loan = new Loan();
         $loan->loan_amount = $request->loan_amount;
         $loan->member_id = $member_id;
         $loan->loan_type = "loan";
-        $loan->gurantors = $request->guarantor1."amount".$request->guarantor1amount.",". $request->guarantor2."amount".$request->guarantor2amount.",". $request->guarantor3."amount".$request->guarantor3amount;
+       // $loan->gurantors = $request->guarantor1."amount".$request->guarantor1amount.",". $request->guarantor2."amount".$request->guarantor2amount.",". $request->guarantor3."amount".$request->guarantor3amount;
+        $loan->gurantors = "[".$guarantor.",".$guarantor2.",".$guarantor3."]";
         $loan->save();
 
         return redirect('home')->with('success', 'Successfully Applied Loan, Please wait as it is reviewed');
