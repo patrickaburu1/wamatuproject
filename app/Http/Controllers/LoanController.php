@@ -29,9 +29,9 @@ class LoanController extends Controller
         $member_id = Auth::user()->member_id;
         $member_status = Member::where('id', $member_id)->first();
 
-        $maximum_loan=$member_status->available_amount*3;
+        $maximum_loan = $member_status->available_amount * 3;
 
-        $loan_amount=$request->loan_amount;
+        $loan_amount = $request->loan_amount;
 
         /*first check if s/he have an existing loan*/
 
@@ -42,32 +42,32 @@ class LoanController extends Controller
         }
 
         /*check if ge has meet loan * 3 shares*/
-        if ($loan_amount > $maximum_loan){
+        if ($loan_amount > $maximum_loan) {
 
-            return redirect()->back()->with('error', 'Sorry, you are not eligible for that amount, maximum loan you can get is KES:: '.$maximum_loan);
+            return redirect()->back()->with('error', 'Sorry, you are not eligible for that amount, maximum loan you can get is KES:: ' . $maximum_loan);
 
         }
 
         /*Finally check if u have an need guarantors if yes give guarantors form else confirm loan*/
-        if ($loan_amount <= $member_status->available_amount){
+        if ($loan_amount <= $member_status->available_amount) {
 
-           /* return view('loans.apply_loan');*/
-            return view('loans.confirm-loan-without-guarantors',compact('loan_amount'));
+            /* return view('loans.apply_loan');*/
+            return view('loans.confirm-loan-without-guarantors', compact('loan_amount'));
 
         }
 
         /*require guarantors enter detail to provide guarators */
 
-        return view('loans.confirm-loan-with-guarantors',compact('loan_amount'));
+        return view('loans.confirm-loan-with-guarantors', compact('loan_amount'));
 
 
         /* return redirect('/apply-loan-step2')->with('info', 'Congratulations, you qualify for amount, please confirm by providing the necessary details');*/
 
 
-
     }
 
-    public function applyWithoutGuarantor(Request $request){
+    public function applyWithoutGuarantor(Request $request)
+    {
 
         $member_id = Auth::user()->member_id;
 
@@ -82,36 +82,72 @@ class LoanController extends Controller
 
     }
 
-    public function applyWithGuarantor(Request $request){
+    public function applyWithGuarantor(Request $request)
+    {
 
         $member_id = Auth::user()->member_id;
 
         /*find guarantor details guaranro 1 must exist*/
-        $guarantor=Member::where('id',$request->guarantor1)->first();
+        $guarantor1 = Member::where('id', $request->guarantor1)->first();
 
-        if(empty($guarantor)){
-            return redirect('apply-loan')->with('error','Member number for guarantor 1 doesnt exist');
+        if (empty($guarantor1)) {
+            return redirect('apply-loan')->with('error', 'Member number for guarantor 1 doesnt exist');
         }
 
-        $guarantor2="";
-        $guarantor3="";
+
+        /*prepare json data for guarantor*/
+        $guarantor1_data = new Member();
+        $guarantor1_data->id = $guarantor1->id;
+        $guarantor1_data->full_name = $guarantor1->full_name;
+        $guarantor1_data->id_number = $guarantor1->id_number;
+        $guarantor1_data->phone_number = $guarantor1->phone_number;
+        $guarantor1_data->available_amount = $guarantor1->available_amount;
+        $guarantor1_data->status = $guarantor1->active;
+        $guarantor1_data->loan_balance = $guarantor1->loan_balance;
+        $guarantor1_data->amount_guaranteed = $request->guarantor1amount;
+
+        $guarantor2_data = "";
+        $guarantor3_data = "";
 
         /*check if other guarantor*/
-        if($request->guarantor2!=null){
-            $guarantor2=Member::where('id',$request->guarantor2)->first();
+        if ($request->guarantor2 != null) {
+            $guarantor2 = Member::where('id', $request->guarantor2)->first();
 
-            if(empty($guarantor2)){
-                return redirect('apply-loan')->with('error','Member number for guarantor 2 doesnt exist');
+            if (empty($guarantor2)) {
+                return redirect('apply-loan')->with('error', 'Member number for guarantor 2 doesnt exist');
             }
+
+            /*prepare json data for guarantor 2*/
+            $guarantor2_data = new Member();
+            $guarantor2_data->id = $guarantor2->id;
+            $guarantor2_data->full_name = $guarantor2->full_name;
+            $guarantor2_data->id_number = $guarantor2->id_number;
+            $guarantor2_data->phone_number = $guarantor2->phone_number;
+            $guarantor2_data->available_amount = $guarantor2->available_amount;
+            $guarantor2_data->status = $guarantor2->active;
+            $guarantor2_data->loan_balance = $guarantor2->loan_balance;
+            $guarantor2_data->amount_guaranteed = $request->guarantor2amount;
 
         }
 
-        if($request->guarantor3!=null){
-            $guarantor3=Member::where('id',$request->guarantor3)->first();
+        if ($request->guarantor3 != null) {
+            $guarantor3 = Member::where('id', $request->guarantor3)->first();
 
-            if(empty($guarantor3)){
-                return redirect('apply-loan')->with('error','Member number for guarantor 3 doesnt exist');
+            if (empty($guarantor3)) {
+                return redirect('apply-loan')->with('error', 'Member number for guarantor 3 doesnt exist');
             }
+
+            /*prepare json data for guarantor 2*/
+            $guarantor3_data = new Member();
+            $guarantor3_data->id = $guarantor2->id;
+            $guarantor3_data->full_name = $guarantor2->full_name;
+            $guarantor3_data->id_number = $guarantor2->id_number;
+            $guarantor3_data->phone_number = $guarantor2->phone_number;
+            $guarantor3_data->available_amount = $guarantor2->available_amount;
+            $guarantor3_data->status = $guarantor2->active;
+            $guarantor3_data->loan_balance = $guarantor3->loan_balance;
+            $guarantor3_data->amount_guaranteed = $request->guarantor2amount;
+
 
         }
 
@@ -119,8 +155,8 @@ class LoanController extends Controller
         $loan->loan_amount = $request->loan_amount;
         $loan->member_id = $member_id;
         $loan->loan_type = "loan";
-       // $loan->gurantors = $request->guarantor1."amount".$request->guarantor1amount.",". $request->guarantor2."amount".$request->guarantor2amount.",". $request->guarantor3."amount".$request->guarantor3amount;
-        $loan->gurantors = "[".$guarantor.",".$guarantor2.",".$guarantor3."]";
+        // $loan->gurantors = $request->guarantor1."amount".$request->guarantor1amount.",". $request->guarantor2."amount".$request->guarantor2amount.",". $request->guarantor3."amount".$request->guarantor3amount;
+        $loan->gurantors = "[" . $guarantor1_data . "," . $guarantor2_data . "," . $guarantor3_data . "]";
         $loan->save();
 
         return redirect('home')->with('success', 'Successfully Applied Loan, Please wait as it is reviewed');
@@ -129,7 +165,8 @@ class LoanController extends Controller
 
 
     /*Step2 confirm loan and if guarantors are needed provide*/
-    public function applyLoan(Request $request)
+    public
+    function applyLoan(Request $request)
     {
 
 
@@ -157,7 +194,8 @@ class LoanController extends Controller
 
     }
 
-    public function appliedLoans()
+    public
+    function appliedLoans()
     {
         $member_id = Auth::user()->member_id;
 
@@ -167,7 +205,8 @@ class LoanController extends Controller
         return view('loans.applied-loans', compact('loans'));
     }
 
-    public function loanRepayment()
+    public
+    function loanRepayment()
     {
 
         $member_id = Auth::user()->member_id;
