@@ -90,7 +90,7 @@ class AuthController extends Controller
 
         /*check if member have already activated account*/
 
-        $user = User::where('email', $member->id)->first();
+        $user = User::where('email', $request->id_number)->first();
 
         if (!empty($user)) {
             return redirect('signin')->with('info', 'You already have an account with us, Login to access portal');
