@@ -105,8 +105,10 @@ class AuthController extends Controller
 
         /*send code to registered phone number*/
 
+        $message="Dear ".$name."  ".$code." is your wamatu muharata sacco activation code ";
+
         $sendsms1 = new SmsController();
-        $sendsms = $sendsms1->sendSms($phone, $code);
+        $sendsms = $sendsms1->sendSms($phone, $message);
 
         if ($sendsms == "Success") {
             $user = new User();

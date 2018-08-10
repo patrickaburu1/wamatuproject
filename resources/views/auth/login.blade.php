@@ -70,7 +70,13 @@
                         </div>
 
                         <div class="text-center">
-                            <a href="{{url('signin')}}">Forgot password?</a>
+                            <a href="{{url('activate-account')}}">Activate Account </a>
+                            <span class="icon-lock5"></span>
+                            <a href="{{url('activate-with-code')}}">Already Have Code?</a>
+                        </div>
+                        <div></div>
+                        <div class="text-center">
+                            <a href="{{url('signin')}}">Forgot password </a>
                         </div>
                     </div>
                 </form>
