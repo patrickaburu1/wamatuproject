@@ -23,6 +23,17 @@ Route::get('/login', 'AuthController@index','login');
 Route::get('/signin', 'AuthController@index');
 Route::post('/signin', 'AuthController@postSignIn');
 
+
+Route::get('/activate-account', 'AuthController@signup');
+
+Route::post('/activate-account', 'AuthController@postSignup');
+
+Route::get('/activate-with-code', 'AuthController@activateWithCode');
+
+Route::post('/activate-with-code', 'AuthController@activateWithCodePost');
+
+Route::get('/send-sms', 'SmsController@try');
+
 Auth::routes();
 
 

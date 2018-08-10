@@ -34,6 +34,10 @@ class HomeController extends Controller
 
         $lastcontribution=Contribution::where([['member_id',$member_id],['status',1]])->orderby('id','desc')->first();
 
+        if (empty($lastcontribution)){
+            $lastcontribution=new Contribution();
+
+        }
 
         $contributions=Contribution::where('member_id',$member_id)->orderby('id','desc')->limit(5)->get();
         //return view('home');

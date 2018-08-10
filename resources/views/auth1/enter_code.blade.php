@@ -39,7 +39,7 @@
 
 
                 <!-- Simple login form -->
-                <form method="post" action="{{url('/signin')}}">
+                <form method="post" action="{{url('/activate-with-code')}}">
                     {{csrf_field()}}
                     <div class="panel panel-body login-form">
                         @include('partials.flash')
@@ -48,35 +48,25 @@
                             <div class=""></div>
                             <img class="size-full wp-image-935  aligncenter" src="assets/images/wamutulogo.png" alt="wamatu" width="128" height="128">
 
-                            <h5 class="content-group">Login to your account <small class="display-block">Enter your credentials below</small></h5>
+                            <h5 class="content-group">Activate Account <small class="display-block">Enter your code sent to phone number {{$phone}}</small></h5>
                         </div>
 
+                        <input name="id_number" class="form-control" value="{{$id_number}}" placeholder="id" type="hidden">
+
                         <div class="form-group has-feedback has-feedback-left">
-                            <input name="username" class="form-control" placeholder="Username" type="text">
+                            <input name="code" class="form-control" placeholder="4 digit code " type="text">
                             <div class="form-control-feedback">
                                 <i class="icon-user text-muted"></i>
                             </div>
                         </div>
 
-                        <div class="form-group has-feedback has-feedback-left">
-                            <input name="password" class="form-control" placeholder="Password" type="password">
-                            <div class="form-control-feedback">
-                                <i class="icon-lock2 text-muted"></i>
-                            </div>
-                        </div>
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block">Sign in <i class="icon-circle-right2 position-right"></i></button>
+                            <button type="submit" class="btn btn-primary btn-block">Activate Account <i class="icon-circle-right2 position-right"></i></button>
                         </div>
 
                         <div class="text-center">
-                            <a href="{{url('activate-account')}}">Activate Account </a>
-                            <span class="icon-lock5"></span>
-                            <a href="{{url('activate-with-code')}}">Already Have Code?</a>
-                        </div>
-                        <div></div>
-                        <div class="text-center">
-                            <a href="{{url('signin')}}">Forgot password </a>
+                            <a href="{{url('signin')}}"> Activated? signin</a>
                         </div>
                     </div>
                 </form>

@@ -52,7 +52,6 @@ class ContributionController extends Controller
 
             return redirect('/home')->with('success','Successfully sent contribution please wait for the approval');
 
-
         }
 
 
