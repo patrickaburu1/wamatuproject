@@ -79,7 +79,7 @@
 
                 <!-- Footer -->
                 <div class="footer text-muted text-center">
-                    © 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+                    © 2018. <a href="#">Wamatu</a> by <a href="#" target="_blank">E-nested Solution</a>
                 </div>
                 <!-- /footer -->
 

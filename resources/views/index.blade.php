@@ -48,6 +48,7 @@
 
                                         </div></a>
 
+                                    <a href="{{url("/apply-loan")}}" >
                                     <div class="col-lg-4 panel panel-flat">
 
                                         <!-- Members online -->
@@ -68,7 +69,7 @@
                                         </div>
                                         <!-- /members online -->
 
-                                    </div>
+                                    </div></a>
 
                                 <a href="{{url("/ministatements")}}" >   <div class="col-lg-4 panel panel-flat">
                                         <!-- Members online -->
