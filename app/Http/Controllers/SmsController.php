@@ -42,6 +42,8 @@ class SmsController extends Controller
         {
             return "Encountered an error while sending: ".$e->getMessage();
         }
+
+        return 0;
         // DONE!!!
     }
 
