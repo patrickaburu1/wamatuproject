@@ -71,11 +71,30 @@ class LoanController extends Controller
 
         $member_id = Auth::user()->member_id;
 
+
+
+        $guarantor2 = Member::where('id', $member_id)->first();
+
+        $guarantor2_data = new Member();
+        $guarantor2_data->id = $member_id;
+        $guarantor2_data->member_reg_number = $guarantor2->member_reg_number;
+        $guarantor2_data->full_name = $guarantor2->full_name;
+        $guarantor2_data->id_number = $guarantor2->id_number;
+        $guarantor2_data->email_address = $guarantor2->email_address;
+        $guarantor2_data->phone_number = $guarantor2->phone_number;
+        $guarantor2_data->available_amount = $guarantor2->available_amount;
+        $guarantor2_data->status = $guarantor2->active;
+        $guarantor2_data->loan_balance = $guarantor2->loan_balance;
+        $guarantor2_data->amount_guaranteed = $request->loan_amount;
+
+
+
         $loan = new Loan();
         $loan->loan_amount = $request->loan_amount;
         $loan->member_id = $request->loan_amount;
         $loan->member_id = $member_id;
         $loan->loan_type = "loan";
+        $loan->gurantors = "[" .$guarantor2_data."]";
         $loan->save();
 
         return redirect('/home')->with('success', 'Successfully Applied Loan, Please wait as it is reviewed');
@@ -87,7 +106,22 @@ class LoanController extends Controller
 
         $member_id = Auth::user()->member_id;
 
-        /*find guarantor details guaranro 1 must exist*/
+        /*own member json*/
+        $member = Member::where('id', $member_id)->first();
+
+        $owner = new Member();
+        $owner->id = $member_id;
+        $owner->member_reg_number = $member->member_reg_number;
+        $owner->full_name = $member->full_name;
+        $owner->id_number = $member->id_number;
+        $owner->email_address = $member->email_address;
+        $owner->phone_number = $member->phone_number;
+        $owner->available_amount = $member->available_amount;
+        $owner->status = $member->active;
+        $owner->loan_balance = $member->loan_balance;
+        $owner->amount_guaranteed = $request->loan_amount;
+
+        /*find guarantor details guarantor 1 must exist*/
         $guarantor1 = Member::where('id', $request->guarantor1)->first();
 
         if (empty($guarantor1)) {
@@ -98,8 +132,10 @@ class LoanController extends Controller
         /*prepare json data for guarantor*/
         $guarantor1_data = new Member();
         $guarantor1_data->id = $guarantor1->id;
+        $guarantor1_data->member_reg_number = $guarantor1->member_reg_number;
         $guarantor1_data->full_name = $guarantor1->full_name;
         $guarantor1_data->id_number = $guarantor1->id_number;
+        $guarantor1_data->email_address = $guarantor1->email_address;
         $guarantor1_data->phone_number = $guarantor1->phone_number;
         $guarantor1_data->available_amount = $guarantor1->available_amount;
         $guarantor1_data->status = $guarantor1->active;
@@ -120,8 +156,10 @@ class LoanController extends Controller
             /*prepare json data for guarantor 2*/
             $guarantor2_data = new Member();
             $guarantor2_data->id = $guarantor2->id;
+            $guarantor2_data->member_reg_number = $guarantor2->member_reg_number;
             $guarantor2_data->full_name = $guarantor2->full_name;
             $guarantor2_data->id_number = $guarantor2->id_number;
+            $guarantor2_data->email_address = $guarantor2->email_address;
             $guarantor2_data->phone_number = $guarantor2->phone_number;
             $guarantor2_data->available_amount = $guarantor2->available_amount;
             $guarantor2_data->status = $guarantor2->active;
@@ -139,14 +177,16 @@ class LoanController extends Controller
 
             /*prepare json data for guarantor 2*/
             $guarantor3_data = new Member();
-            $guarantor3_data->id = $guarantor2->id;
-            $guarantor3_data->full_name = $guarantor2->full_name;
-            $guarantor3_data->id_number = $guarantor2->id_number;
-            $guarantor3_data->phone_number = $guarantor2->phone_number;
-            $guarantor3_data->available_amount = $guarantor2->available_amount;
-            $guarantor3_data->status = $guarantor2->active;
+            $guarantor3_data->id = $guarantor3->id;
+            $guarantor3_data->member_reg_number = $guarantor3->member_reg_number;
+            $guarantor3_data->full_name = $guarantor3->full_name;
+            $guarantor3_data->id_number = $guarantor3->id_number;
+            $guarantor3_data->email_address = $guarantor3->email_address;
+            $guarantor3_data->phone_number = $guarantor3->phone_number;
+            $guarantor3_data->available_amount = $guarantor3->available_amount;
+            $guarantor3_data->status = $guarantor3->active;
             $guarantor3_data->loan_balance = $guarantor3->loan_balance;
-            $guarantor3_data->amount_guaranteed = $request->guarantor2amount;
+            $guarantor3_data->amount_guaranteed = $request->guarantor3amount;
 
 
         }
@@ -156,7 +196,7 @@ class LoanController extends Controller
         $loan->member_id = $member_id;
         $loan->loan_type = "loan";
         // $loan->gurantors = $request->guarantor1."amount".$request->guarantor1amount.",". $request->guarantor2."amount".$request->guarantor2amount.",". $request->guarantor3."amount".$request->guarantor3amount;
-        $loan->gurantors = "[" . $guarantor1_data . "," . $guarantor2_data . "," . $guarantor3_data . "]";
+        $loan->gurantors = "[" .$owner.",". $guarantor1_data . "," . $guarantor2_data . "," . $guarantor3_data . "]";
         $loan->save();
 
         return redirect('home')->with('success', 'Successfully Applied Loan, Please wait as it is reviewed');
@@ -205,8 +245,7 @@ class LoanController extends Controller
         return view('loans.applied-loans', compact('loans'));
     }
 
-    public
-    function loanRepayment()
+    public function loanRepayment()
     {
 
         $member_id = Auth::user()->member_id;

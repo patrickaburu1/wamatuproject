@@ -85,6 +85,18 @@
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <label class="col-lg-3 control-label">Receipt Number</label>
+                                <div class="col-lg-9">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <input type="text" name="receipt_number" placeholder="26878787" maxlength="30"
+                                                   class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
 
                             <div class="row">
                                 <label class="col-lg-3 control-label">Upload Bank Slip (Pdf) format:</label>

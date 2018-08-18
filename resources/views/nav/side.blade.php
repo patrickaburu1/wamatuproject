@@ -63,7 +63,7 @@
                                 <ul>
                                     <li ><a class="-add" href="{{url('apply-loan')}}">Apply Loan</a></li>
                                     <li><a class="-add-to-list" href="{{url('applied-loans')}}">Applied Loan</a></li>
-                                    <li><a class="-stack-cancel" href="{{url('rejected')}}"> Payment Installments</a></li>
+                                    <li><a class="-stack-cancel" href="{{url('loans-repayment')}}"> Payment Installments</a></li>
                                 </ul>
                             </li>
 

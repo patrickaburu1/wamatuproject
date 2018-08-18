@@ -8,17 +8,25 @@ use Illuminate\Support\Facades\Auth;
 
 class ContributionController extends Controller
 {
-  public  function index(){
-      return view('contribution.contribute');
-  }
+    public function index()
+    {
+        return view('contribution.contribute');
+    }
 
-  /*add controller*/
+    /*add controller*/
 
-    public function addContribution(Request $request){
+    public function addContribution(Request $request)
+    {
 
-        if (Auth::user()){
+        if (Auth::user()) {
 
-            $member_id=Auth::user()->member_id;
+
+            $expected_total = $request->shares + $request->loan + $request->mis + $request->merry + $request->ben;
+            /*check if distribution match total*/
+            if ($expected_total != $request->total) {
+                return redirect()->back()->with('error', 'Sorry, Amount distribution doesnt match TOTAL amount of '.$request->total);
+            }
+            $member_id = Auth::user()->member_id;
 
             request()->validate([
 
@@ -26,66 +34,69 @@ class ContributionController extends Controller
 
             ]);
 
-           $url=  url('/');
+            $url = url('/');
 
-            $imageName = time().'.'.request()->image->getClientOriginalExtension();
+            $imageName = time() . '.' . request()->image->getClientOriginalExtension();
 
             request()->image->move(public_path('images'), $imageName);
 
 
-            $receipt=$url."/public/images/".$imageName;
+            $receipt = $url . "/public/images/" . $imageName;
 
 
-            $contribute=new Contribution();
-            $contribute->tranaction_id="1";
-            $contribute->member_id=$member_id;
-            $contribute->shares_contribution_type=$request->shares;
-            $contribute->loan_payment_contribution_type=$request->loan;
-            $contribute->Miscellaneous_contribution_type=$request->mis;
-            $contribute->merry_go_round_contribution_type=$request->merry;
-            $contribute->benevolent_contribution_type=$request->ben;
-            $contribute->recept_number="test";
-            $contribute->amount=$request->total;
-            $contribute->recept_meme=$receipt;
+            $contribute = new Contribution();
+            $contribute->tranaction_id = "1";
+            $contribute->member_id = $member_id;
+            $contribute->shares_contribution_type = $request->shares;
+            $contribute->loan_payment_contribution_type = $request->loan;
+            $contribute->Miscellaneous_contribution_type = $request->mis;
+            $contribute->merry_go_round_contribution_type = $request->merry;
+            $contribute->benevolent_contribution_type = $request->ben;
+            $contribute->recept_number = $request->receipt_number;
+            $contribute->amount = $request->total;
+            $contribute->recept_meme = $receipt;
 
             $contribute->save();
 
-            return redirect('/home')->with('success','Successfully sent contribution please wait for the approval');
+            return redirect('/home')->with('success', 'Successfully sent contribution please wait for the approval');
 
         }
 
 
-        return redirect('/contribute')->with('error','Sorry something went wrong, please try again later ');
+        return redirect('/contribute')->with('error', 'Sorry something went wrong, please try again later ');
 
     }
 
 
-    public function contributions(){
-        $member_id=Auth::user()->member_id;
+    public function contributions()
+    {
+        $member_id = Auth::user()->member_id;
 
 
-        $contributions=Contribution::where([['member_id',$member_id],['status',1]])->get();
+        $contributions = Contribution::where([['member_id', $member_id], ['status', 1]])->get();
 
         return view('contribution.statement', compact('contributions'));
     }
 
 
-    public function pending(){
+    public function pending()
+    {
 
 
-        $member_id=Auth::user()->member_id;
+        $member_id = Auth::user()->member_id;
 
-        $contributions=Contribution::where([['status',0],['member_id',$member_id]])->get();
+        $contributions = Contribution::where([['status', 0], ['member_id', $member_id]])->get();
 
         return view('contribution.pendingApproval', compact('contributions'));
     }
 
-    public function rejected(){
+    public function rejected()
+    {
 
-        $member_id=Auth::user()->member_id;
+        $member_id = Auth::user()->member_id;
 
 
-        $contributions=Contribution::where([['status',2],['member_id',$member_id]])->get();
+        $contributions = Contribution::where([['status', 2], ['member_id', $member_id]])->get();
 
         return view('contribution.rejected', compact('contributions'));
     }
