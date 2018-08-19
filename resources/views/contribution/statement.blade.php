@@ -73,7 +73,7 @@
                                     <td>{{number_format($contribution->Miscellaneous_contribution_type)}}</td>
                                     <td><span >{{number_format($contribution->merry_go_round_contribution_type)}}</span></td>
                                     <td><span >{{number_format($contribution->amount)}}</span></td>
-                                    <td>{{$contribution->date}}</td>
+                                    <td>{{$contribution->created_at}}</td>
 
                                 </tr>
 

@@ -46,7 +46,7 @@ class ContributionController extends Controller
 
 
             $contribute = new Contribution();
-            $contribute->tranaction_id = "1";
+            //$contribute->tranaction_code = "1";
             $contribute->member_id = $member_reg_number;
             $contribute->shares_contribution_type = $request->shares;
             $contribute->loan_payment_contribution_type = $request->loan;
@@ -56,6 +56,7 @@ class ContributionController extends Controller
             $contribute->recept_number = $request->receipt_number;
             $contribute->amount = $request->total;
             $contribute->recept_meme = $receipt;
+            $contribute->transaction_by = $member_reg_number;
 
             $contribute->save();
 

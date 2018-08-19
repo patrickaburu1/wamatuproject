@@ -42,8 +42,11 @@
                                 colspan="1" aria-label="Start date: activate to sort column ascending">Interest (PA)
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                colspan="2" aria-label="Salary: activate to sort column ascending">Date
+                                colspan="2" aria-label="Salary: activate to sort column ascending">Repayment Status
                             </th>
+                           {{-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                colspan="2" aria-label="Salary: activate to sort column ascending">Date
+                            </th>--}}
 
                         </tr>
                         </thead>
@@ -66,7 +69,15 @@
                                 <td>{{$loan->repayments_period}} (Months)</td>
                                 <td>{{number_format($loan->monthly_installment)}}</td>
                                 <td>{{$loan->interest_rate}}%</td>
-                                <td>{{$loan->created}}</td>
+
+                                <?php
+                                if($loan->repayment_status==0){
+                                    echo '<td class=""><span class="label label-info">UNPAID</span></td>';
+                                }elseif($loan->repayment_status==1){
+                                    echo '<td class=""><span class="label label-success">PAID</span></td>';
+                                }
+                                ?>
+                               {{-- <td>{{$loan->created}}</td>--}}
 
                             </tr>
 
