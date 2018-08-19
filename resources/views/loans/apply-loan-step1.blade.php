@@ -50,6 +50,14 @@
                                                                    class="form-control" required="" type="text">
                                                         </div>
 
+
+                                                        <label class="col-lg-1 control-label">Duration (Months):</label>
+                                                        <div class="col-lg-3">
+                                                            <input name="duration" id="" value=""
+                                                                   placeholder="Repayment period in months"
+                                                                   class="form-control" required="" type="text">
+                                                        </div>
+
                                                         <div class="col-lg-2 text-right">
                                                             <button type="submit" class="btn btn-primary"> Submit <i
                                                                         class="icon-arrow-right14 position-right"></i>

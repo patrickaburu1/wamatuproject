@@ -17,6 +17,8 @@
                                 <div class="panel-heading">
                                     <h4 class="panel-title">Congratulations {{\Illuminate\Support\Facades\Auth::user()->name}}<a class="heading-elements-toggle"><i class="icon-more"></i></a></h4>
                                     <h5 class="panel-title"> You qualify For loan Of <span  class="alert-danger"> KES:: {{number_format($loan_amount)}}</span> <a class="heading-elements-toggle"><i class="icon-more"></i></a></h5>
+                                    <h5 class="panel-title"> Repayment Monthly Installment <span  class="alert-danger"> KES:: {{number_format($monthlyInstallment)}}</span> </h5>
+                                    <h5 class="panel-title"> Duration <span  class="alert-danger"> {{$duration}}</span> Months</h5>
 
                                     <div style="text-align: left; width: 90%">
                                         For this amount of loan you don't need guarantors.
@@ -46,6 +48,7 @@
                                                        {{-- <label class="col-lg-1 control-label">Amount:</label>--}}
                                                         <div class="col-lg-3">
                                                             <input type="text" name="loan_amount" value="{{$loan_amount}}" hidden>
+                                                            <input type="text" name="duration" value="{{$duration}}" hidden>
                                                         </div>
 
                                                         <div class="col-lg-2 text-right">

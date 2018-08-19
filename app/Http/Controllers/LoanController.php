@@ -33,6 +33,17 @@ class LoanController extends Controller
 
         $loan_amount = $request->loan_amount;
 
+        /*check monthly exceeds max of 36 months*/
+
+        $maxduration=36;
+        $duration=$request->duration;
+
+        if ($duration > $maxduration) {
+
+            return redirect()->back()->with('error', 'Sorry, your repayaments duration exceeds maximum duration of '.$maxduration.' months');
+
+        }
+
         /*first check if s/he have an existing loan*/
 
         if ($member_status->loan_balance > 0) {
@@ -47,18 +58,22 @@ class LoanController extends Controller
             return redirect()->back()->with('error', 'Sorry, you are not eligible for that amount, maximum loan you can get is KES:: ' . $maximum_loan);
 
         }
+        /*calculate */
+
+        $installment=new ConstantController();
+        $monthlyInstallment=$installment->calculateInstallments($loan_amount,$duration);
 
         /*Finally check if u have an need guarantors if yes give guarantors form else confirm loan*/
         if ($loan_amount <= $member_status->available_amount) {
 
             /* return view('loans.apply_loan');*/
-            return view('loans.confirm-loan-without-guarantors', compact('loan_amount'));
+            return view('loans.confirm-loan-without-guarantors', compact('loan_amount','monthlyInstallment','duration'));
 
         }
 
         /*require guarantors enter detail to provide guarators */
 
-        return view('loans.confirm-loan-with-guarantors', compact('loan_amount'));
+        return view('loans.confirm-loan-with-guarantors', compact('loan_amount','monthlyInstallment','duration'));
 
 
         /* return redirect('/apply-loan-step2')->with('info', 'Congratulations, you qualify for amount, please confirm by providing the necessary details');*/
@@ -93,8 +108,9 @@ class LoanController extends Controller
         $loan->loan_amount = $request->loan_amount;
         $loan->member_id = $request->loan_amount;
         $loan->member_id = $member_id;
-        $loan->loan_type = "loan";
+        $loan->loan_type = 0; /*long term 0 , 1 top up, 3 emergency*/
         $loan->gurantors = "[" .$guarantor2_data."]";
+        $loan->repayments_period = $request->duration;
         $loan->save();
 
         return redirect('/home')->with('success', 'Successfully Applied Loan, Please wait as it is reviewed');
@@ -194,7 +210,8 @@ class LoanController extends Controller
         $loan = new Loan();
         $loan->loan_amount = $request->loan_amount;
         $loan->member_id = $member_id;
-        $loan->loan_type = "loan";
+        $loan->repayments_period = $request->duration;
+        $loan->loan_type = 0; /*long term 0 , 1 top up, 3 emergency*/
         // $loan->gurantors = $request->guarantor1."amount".$request->guarantor1amount.",". $request->guarantor2."amount".$request->guarantor2amount.",". $request->guarantor3."amount".$request->guarantor3amount;
         $loan->gurantors = "[" .$owner.",". $guarantor1_data . "," . $guarantor2_data . "," . $guarantor3_data . "]";
         $loan->save();
@@ -222,9 +239,9 @@ class LoanController extends Controller
         $loan = new Loan();
         $loan->loan_amount = $request->loan_amount;
         $loan->member_id = $member_id;
-        $loan->loan_type = "loan";
+        $loan->loan_type = 0; /*long term 0 , 1 top up, 3 emergency*/
         $loan->repayments_period = $request->period;
-        $loan->pay_date = "2019/07/23";
+       /* $loan->pay_date = "2019/07/23";*/
         $loan->monthly_installment = $request->installments;
         $loan->gurantors = $request->guarantor1;
         $loan->save();

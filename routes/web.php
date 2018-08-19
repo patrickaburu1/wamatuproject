@@ -73,7 +73,7 @@ Route::group(['middleware'=>'auth'], function () {
     Route::post('/apply-loan-with-guarantors', 'LoanController@applyWithGuarantor');
 
 
-    Route::post('/apply-loan', 'LoanController@applyLoan');
+    /*Route::post('/apply-loan', 'LoanController@applyLoan');*/
 
 
     Route::get('/applied-loans', 'LoanController@appliedLoans');
