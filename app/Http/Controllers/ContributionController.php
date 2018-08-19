@@ -27,6 +27,7 @@ class ContributionController extends Controller
                 return redirect()->back()->with('error', 'Sorry, Amount distribution doesnt match TOTAL amount of '.$request->total);
             }
             $member_id = Auth::user()->member_id;
+            $member_reg_number = Auth::user()->member_reg_number;
 
             request()->validate([
 
@@ -46,7 +47,7 @@ class ContributionController extends Controller
 
             $contribute = new Contribution();
             $contribute->tranaction_id = "1";
-            $contribute->member_id = $member_id;
+            $contribute->member_id = $member_reg_number;
             $contribute->shares_contribution_type = $request->shares;
             $contribute->loan_payment_contribution_type = $request->loan;
             $contribute->Miscellaneous_contribution_type = $request->mis;
@@ -70,7 +71,7 @@ class ContributionController extends Controller
 
     public function contributions()
     {
-        $member_id = Auth::user()->member_id;
+        $member_id = Auth::user()->member_reg_number;
 
 
         $contributions = Contribution::where([['member_id', $member_id], ['status', 1]])->get();
@@ -83,7 +84,7 @@ class ContributionController extends Controller
     {
 
 
-        $member_id = Auth::user()->member_id;
+        $member_id = Auth::user()->member_reg_number;
 
         $contributions = Contribution::where([['status', 0], ['member_id', $member_id]])->get();
 
@@ -93,7 +94,7 @@ class ContributionController extends Controller
     public function rejected()
     {
 
-        $member_id = Auth::user()->member_id;
+        $member_id = Auth::user()->member_reg_number;
 
 
         $contributions = Contribution::where([['status', 2], ['member_id', $member_id]])->get();

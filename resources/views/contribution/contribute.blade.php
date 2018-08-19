@@ -42,7 +42,7 @@
                                     <div class="row">
                                         <div class="form-group">
                                             <input type="number" name="loan" placeholder="25000" maxlength="6"
-                                                   class="form-control" required>
+                                                   class="form-control" >
                                         </div>
                                     </div>
                                 </div>
@@ -55,7 +55,7 @@
                                     <div class="row">
                                         <div class="form-group">
                                             <input type="number" name="mis" placeholder="25000" maxlength="6"
-                                                   class="form-control" required>
+                                                   class="form-control" >
                                         </div>
                                     </div>
                                 </div>
@@ -67,7 +67,7 @@
                                     <div class="row">
                                         <div class="form-group">
                                             <input type="number" name="merry" placeholder="25000" maxlength="6"
-                                                   class="form-control" required>
+                                                   class="form-control" >
                                         </div>
                                     </div>
                                 </div>
@@ -90,7 +90,7 @@
                                 <div class="col-lg-9">
                                     <div class="row">
                                         <div class="form-group">
-                                            <input type="text" name="receipt_number" placeholder="26878787" maxlength="30"
+                                            <input type="text" name="receipt_number" placeholder="26878787" maxlength="30" required
                                                    class="form-control">
                                         </div>
                                     </div>
@@ -103,7 +103,7 @@
                                 <div class="col-lg-9">
                                     <div class="row">
                                         <div class="form-group">
-                                            <input type="file" name="image" accept="application/pdf"
+                                            <input type="file" name="image" accept="application/pdf" required
                                                    class="form-contro">
                                         </div>
                                     </div>

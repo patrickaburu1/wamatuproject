@@ -26,8 +26,9 @@ class LoanController extends Controller
     public function checkForEligibility(Request $request)
     {
 
-        $member_id = Auth::user()->member_id;
-        $member_status = Member::where('id', $member_id)->first();
+        $member_id = Auth::user()->member_reg_number;
+
+        $member_status = Member::where('member_reg_number', $member_id)->first();
 
         $maximum_loan = $member_status->available_amount * 3;
 
@@ -84,11 +85,11 @@ class LoanController extends Controller
     public function applyWithoutGuarantor(Request $request)
     {
 
-        $member_id = Auth::user()->member_id;
+        $member_id = Auth::user()->member_reg_number;
 
 
 
-        $guarantor2 = Member::where('id', $member_id)->first();
+        $guarantor2 = Member::where('member_reg_number', $member_id)->first();
 
         $guarantor2_data = new Member();
         $guarantor2_data->id = $member_id;
@@ -120,10 +121,10 @@ class LoanController extends Controller
     public function applyWithGuarantor(Request $request)
     {
 
-        $member_id = Auth::user()->member_id;
+        $member_id = Auth::user()->member_reg_number;
 
         /*own member json*/
-        $member = Member::where('id', $member_id)->first();
+        $member = Member::where('member_reg_number', $member_id)->first();
 
         $owner = new Member();
         $owner->id = $member_id;
@@ -138,7 +139,7 @@ class LoanController extends Controller
         $owner->amount_guaranteed = $request->loan_amount;
 
         /*find guarantor details guarantor 1 must exist*/
-        $guarantor1 = Member::where('id', $request->guarantor1)->first();
+        $guarantor1 = Member::where('member_reg_number', $request->guarantor1)->first();
 
         if (empty($guarantor1)) {
             return redirect('apply-loan')->with('error', 'Member number for guarantor 1 doesnt exist');
@@ -163,7 +164,7 @@ class LoanController extends Controller
 
         /*check if other guarantor*/
         if ($request->guarantor2 != null) {
-            $guarantor2 = Member::where('id', $request->guarantor2)->first();
+            $guarantor2 = Member::where('member_reg_number', $request->guarantor2)->first();
 
             if (empty($guarantor2)) {
                 return redirect('apply-loan')->with('error', 'Member number for guarantor 2 doesnt exist');
@@ -185,7 +186,7 @@ class LoanController extends Controller
         }
 
         if ($request->guarantor3 != null) {
-            $guarantor3 = Member::where('id', $request->guarantor3)->first();
+            $guarantor3 = Member::where('member_reg_number', $request->guarantor3)->first();
 
             if (empty($guarantor3)) {
                 return redirect('apply-loan')->with('error', 'Member number for guarantor 3 doesnt exist');
@@ -227,8 +228,8 @@ class LoanController extends Controller
     {
 
 
-        $member_id = Auth::user()->member_id;
-        $loan_status = Member::where('id', $member_id)->first();
+        $member_id = Auth::user()->member_reg_number;
+        $loan_status = Member::where('member_reg_number', $member_id)->first();
 
         if ($loan_status->loan_balance > 0) {
 
@@ -254,7 +255,7 @@ class LoanController extends Controller
     public
     function appliedLoans()
     {
-        $member_id = Auth::user()->member_id;
+        $member_id = Auth::user()->member_reg_number;
 
 
         $loans = Loan::where('member_id', $member_id)->get();
@@ -265,7 +266,7 @@ class LoanController extends Controller
     public function loanRepayment()
     {
 
-        $member_id = Auth::user()->member_id;
+        $member_id = Auth::user()->member_reg_number;
 
         $repayments = LoanRepayment::where('member_id', $member_id)->get();
 

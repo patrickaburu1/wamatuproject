@@ -115,6 +115,7 @@ class AuthController extends Controller
             $user->email = $id_number;
             $user->name = $name;
             $user->member_id = $member->id;
+            $user->member_reg_number = $member->member_reg_number;
             $user->password = bcrypt($request->password);
             $user->activation_code = $code;
             $user->save();

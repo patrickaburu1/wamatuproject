@@ -26,9 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $member_id=Auth::user()->member_id;
+        $member_id=Auth::user()->member_reg_number;
 
-        $shares=Member::where('id',$member_id)->first();
+        $shares=Member::where('member_reg_number',$member_id)->first();
 
        /* $shares=Contribution::where([['member_id',$member_id],['status',1]])->sum('shares_contribution_type');*/
 
