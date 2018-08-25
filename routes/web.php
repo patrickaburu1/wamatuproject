@@ -49,6 +49,9 @@ Route::group(['middleware'=>'auth'], function () {
 
     Route::get('/contributions', 'ContributionController@contributions');
 
+    /*approved contributions*/
+    Route::get('/approved-contributions', 'ContributionController@approvedContribution');
+
 
     Route::get('/ministatements', 'ContributionController@contributions');
 
@@ -70,7 +73,7 @@ Route::group(['middleware'=>'auth'], function () {
 
     Route::post('/apply-loan-without-guarantors', 'LoanController@applyWithoutGuarantor');
 
-    Route::post('/apply-loan-with-guarantors', 'LoanController@applyWithGuarantor');
+    Route::post('/apply-loan-with-guarantors', 'LoanController@applyWithGuarantorcontributions');
 
 
     /*Route::post('/apply-loan', 'LoanController@applyLoan');*/

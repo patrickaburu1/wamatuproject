@@ -122,7 +122,7 @@
                                             <div class="panel-body">
 
                                                 <h3 class="no-margin">Last Contribution </h3>
-                                                <div class="text-muted text-size-large text-white"> Date :: <span class="text-size-large text-white">{{$lastcontribution->date}}</span>
+                                                <div class="text-muted text-size-large text-white"> Date :: <span class="text-size-large text-white">{{$lastcontribution->created_at}}</span>
                                                 Amount ::  <span class="heading-text badge bg-danger-600">KES: {{number_format($lastcontribution->amount)}}</span></div>
                                             </div>
 

@@ -24,7 +24,7 @@ class ContributionController extends Controller
             $expected_total = $request->shares + $request->loan + $request->mis + $request->merry + $request->ben;
             /*check if distribution match total*/
             if ($expected_total != $request->total) {
-                return redirect()->back()->with('error', 'Sorry, Amount distribution doesnt match TOTAL amount of '.$request->total);
+                return redirect()->back()->with('error', 'Sorry, Amount distribution doesnt match TOTAL amount of ' . $request->total);
             }
             $member_id = Auth::user()->member_id;
             $member_reg_number = Auth::user()->member_reg_number;
@@ -70,6 +70,7 @@ class ContributionController extends Controller
     }
 
 
+    /*contributions*/
     public function contributions()
     {
         $member_id = Auth::user()->member_reg_number;
@@ -80,7 +81,18 @@ class ContributionController extends Controller
         return view('contribution.statement', compact('contributions'));
     }
 
+    /*check for approved contributions*/
+    public function approvedContribution()
+    {
+        $member_id = Auth::user()->member_reg_number;
 
+
+        $contributions = Contribution::where([['member_id', $member_id], ['status', 1]])->get();
+
+        return view('contribution.approved-contributions', compact('contributions'));
+    }
+
+    /*pending approval contribution*/
     public function pending()
     {
 
@@ -92,6 +104,7 @@ class ContributionController extends Controller
         return view('contribution.pendingApproval', compact('contributions'));
     }
 
+    /*rejected contributions*/
     public function rejected()
     {
 

@@ -54,7 +54,7 @@
                                 <div class="col-lg-9">
                                     <div class="row">
                                         <div class="form-group">
-                                            <input type="number" name="mis" placeholder="25000" maxlength="6"
+                                            <input type="number" name="mis" placeholder="25000" maxlength="6" required
                                                    class="form-control" >
                                         </div>
                                     </div>
