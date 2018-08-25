@@ -23,15 +23,15 @@
                            aria-describedby="DataTables_Table_0_info">
                         <thead>
                         <tr role="row">
-                            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                colspan="1" aria-sort="ascending"
-                                aria-label="Name: activate to sort column descending">benevolent
-                            </th>
                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
                                 colspan="1" aria-label="Position: activate to sort column ascending">Shares
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
                                 colspan="1" aria-label="Age: activate to sort column ascending">Loan
+                            </th>
+                            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                colspan="1" aria-sort="ascending"
+                                aria-label="Name: activate to sort column descending">benevolent
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
                                 colspan="1" aria-label="Start date: activate to sort column ascending">Miscellaneous
@@ -55,9 +55,9 @@
                         @foreach($contributions as $contribution)
 
                             <tr role="row" class="">
-                                <td class="sorting_1">{{number_format($contribution->benevolent_contribution_type)}}</td>
                                 <td>{{number_format($contribution->shares_contribution_type)}}</td>
                                 <td>{{number_format($contribution->loan_payment_contribution_type)}}</td>
+                                <td class="sorting_1">{{number_format($contribution->benevolent_contribution_type)}}</td>
                                 <td>{{number_format($contribution->Miscellaneous_contribution_type)}}</td>
                                 <td><span >{{number_format($contribution->merry_go_round_contribution_type)}}</span></td>
                                 <td><span >{{number_format($contribution->amount)}}</span></td>

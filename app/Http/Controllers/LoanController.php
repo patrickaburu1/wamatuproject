@@ -252,8 +252,7 @@ class LoanController extends Controller
 
     }
 
-    public
-    function appliedLoans()
+    public function appliedLoans()
     {
         $member_id = Auth::user()->member_reg_number;
 
@@ -261,6 +260,17 @@ class LoanController extends Controller
         $loans = Loan::where('member_id', $member_id)->get();
 
         return view('loans.applied-loans', compact('loans'));
+    }
+
+    /*rejected loans*/
+    public function rejectedLoan()
+    {
+        $member_id = Auth::user()->member_reg_number;
+
+
+        $loans = Loan::where([['member_id', $member_id],['approval_status',2]])->get();
+
+        return view('loans.rejected-loans', compact('loans'));
     }
 
     public function loanRepayment()

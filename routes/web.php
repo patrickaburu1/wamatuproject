@@ -81,6 +81,9 @@ Route::group(['middleware'=>'auth'], function () {
 
     Route::get('/applied-loans', 'LoanController@appliedLoans');
 
+    /*rejected loans*/
+    Route::get('/rejected-loans', 'LoanController@rejectedLoan');
+
 
     Route::get('/loans-repayment', 'LoanController@loanRepayment');
 

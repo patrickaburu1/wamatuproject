@@ -53,6 +53,7 @@
                                 <ul>
                                     <li ><a class="-add" href="{{url('contribute')}}">Send Contribution</a></li>
                                     <li><a class="-add-to-list" href="{{url('pending')}}">Pending Approval</a></li>
+                                    <li><a class="-stack-cancel" href="{{url('approved-contributions')}}">Approved Contributions</a></li>
                                     <li><a class="-stack-cancel" href="{{url('rejected')}}">Rejected Contributions</a></li>
                                 </ul>
                             </li>
@@ -63,6 +64,7 @@
                                 <ul>
                                     <li ><a class="-add" href="{{url('apply-loan')}}">Apply Loan</a></li>
                                     <li><a class="-add-to-list" href="{{url('applied-loans')}}">Applied Loan</a></li>
+                                    <li><a class="-add-to-list" href="{{url('rejected-loans')}}">Rejected Loans</a></li>
                                     <li><a class="-stack-cancel" href="{{url('loans-repayment')}}"> Payment Installments</a></li>
                                 </ul>
                             </li>
