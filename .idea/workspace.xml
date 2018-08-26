@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42da4578-b4fd-4bec-96bf-50478163d2ed" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/loans/rejected-loans.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoanController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoanController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contribution/approved-contributions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contribution/approved-contributions.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contribution/pendingApproval.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contribution/pendingApproval.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contribution/rejected.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contribution/rejected.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/nav/side.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nav/side.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,17 +20,17 @@
       <file leaf-file-name="side.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/nav/side.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
+            <state relative-caret-position="870">
               <caret line="58" column="33" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rejected-loans.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rejected-loans.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/loans/rejected-loans.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="70" column="47" lean-forward="true" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
+            <state relative-caret-position="129">
+              <caret line="61" column="45" selection-start-line="61" selection-start-column="45" selection-end-line="61" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -44,17 +38,17 @@
       <file leaf-file-name="LoanController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LoanController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="270" column="73" selection-start-line="270" selection-start-column="73" selection-end-line="270" selection-end-column="73" />
+            <state relative-caret-position="217">
+              <caret line="120" column="38" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="84" column="31" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="31" />
+            <state relative-caret-position="337">
+              <caret line="75" column="84" lean-forward="true" selection-start-line="75" selection-start-column="84" selection-end-line="75" selection-end-column="84" />
             </state>
           </provider>
         </entry>
@@ -62,8 +56,8 @@
       <file leaf-file-name="applied-loans.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/loans/applied-loans.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="81" column="33" lean-forward="true" selection-start-line="57" selection-start-column="27" selection-end-line="81" selection-end-column="33" />
+            <state relative-caret-position="1215">
+              <caret line="81" column="33" selection-start-line="57" selection-start-column="27" selection-end-line="81" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -71,7 +65,7 @@
       <file leaf-file-name="rejected.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/contribution/rejected.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
+            <state relative-caret-position="1035">
               <caret line="69" column="45" selection-start-line="67" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
             </state>
           </provider>
@@ -157,9 +151,9 @@
         <option value="$PROJECT_DIR$/resources/views/contribution/pendingApproval.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/contribution/rejected.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/nav/side.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LoanController.php" />
         <option value="$PROJECT_DIR$/resources/views/loans/rejected-loans.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
       </list>
     </option>
   </component>
@@ -409,18 +403,19 @@
       <workItem from="1534590950704" duration="10166000" />
       <workItem from="1534671473895" duration="14710000" />
       <workItem from="1535097142995" duration="599000" />
-      <workItem from="1535181133565" duration="4316000" />
+      <workItem from="1535181133565" duration="6214000" />
+      <workItem from="1535277553005" duration="226000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136848000" />
+    <option name="totallyTimeSpent" value="138991000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
+    <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16979167" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22447917" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -743,9 +738,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="84" column="40" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="40" />
-          <folding>
-            <element signature="e#40#61#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -765,43 +757,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/nav/side.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
+        <state relative-caret-position="870">
           <caret line="58" column="33" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="84" column="31" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LoanController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="270" column="73" selection-start-line="270" selection-start-column="73" selection-end-line="270" selection-end-column="73" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/loans/applied-loans.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="81" column="33" lean-forward="true" selection-start-line="57" selection-start-column="27" selection-end-line="81" selection-end-column="33" />
+        <state relative-caret-position="1215">
+          <caret line="81" column="33" selection-start-line="57" selection-start-column="27" selection-end-line="81" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/contribution/rejected.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state relative-caret-position="1035">
           <caret line="69" column="45" selection-start-line="67" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/loans/rejected-loans.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="70" column="47" lean-forward="true" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
+        <state relative-caret-position="129">
+          <caret line="61" column="45" selection-start-line="61" selection-start-column="45" selection-end-line="61" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LoanController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="120" column="38" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="75" column="84" lean-forward="true" selection-start-line="75" selection-start-column="84" selection-end-line="75" selection-end-column="84" />
         </state>
       </provider>
     </entry>
