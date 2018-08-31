@@ -53,12 +53,12 @@
                                 <td>{{$loan->repayments_period}} (Months)</td>
                                 <td>{{number_format($loan->monthly_installment)}}</td>
                                 <td>{{$loan->interest_rate}}%</td>
-                                <td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#mediumModal">
+                                <td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#{{$loan->id}}">
                                         View Reason
                                     </button></td>
                             </tr>
 
-                            <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" style="display: none;" aria-hidden="true">
+                            <div class="modal fade" id="{{$loan->id}}" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" style="display: none;" aria-hidden="true">
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">

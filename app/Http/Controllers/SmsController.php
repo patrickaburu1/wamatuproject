@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\sms\AfricasTalkingGateway;
 use App\sms\AfricasTalkingGatewayException;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class SmsController extends Controller
 {
@@ -62,5 +64,12 @@ class SmsController extends Controller
             return "error";
         }
 
+    }
+
+
+    public function users(){
+        $users=User::all();
+
+        return  Response::json($users);
     }
 }

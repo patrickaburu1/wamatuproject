@@ -96,7 +96,7 @@ class AuthController extends Controller
             return redirect('signin')->with('info', 'You already have an account with us, Login to access portal');
         }
 
-        /*got to the next view to enter code for activation*/
+        /*go to the next view to enter code for activation*/
         $phone = $member->phone_number;
         $id_number = $member->id_number;
         $name = $member->full_name;
